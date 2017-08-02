@@ -6,7 +6,11 @@
 
     <groupId>com.rkovtiuk</groupId>
     <artifactId>boot_microservices</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>userclientlibs</module>
+    </modules>
 
 
 </project>
