@@ -12,6 +12,7 @@
         <module>user-client-libs</module>
         <module>user-dashboard</module>
         <module>user-notification</module>
+        <module>user-service</module>
     </modules>
 
 
