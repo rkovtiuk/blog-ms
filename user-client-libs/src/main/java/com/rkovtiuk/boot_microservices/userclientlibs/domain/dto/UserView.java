@@ -11,7 +11,7 @@ public class UserView {
     private String forename;
     private String surname;
     private String organisation;
-    private List<String> notification;
+    private List<String> notifications;
     private long points;
 
     public UserView() {
@@ -49,12 +49,12 @@ public class UserView {
         this.organisation = organisation;
     }
 
-    public List<String> getNotification() {
-        return notification;
+    public List<String> getNotifications() {
+        return notifications;
     }
 
-    public void setNotification(List<String> notification) {
-        this.notification = notification;
+    public void setNotifications(List<String> notifications) {
+        this.notifications = notifications;
     }
 
     public long getPoints() {
