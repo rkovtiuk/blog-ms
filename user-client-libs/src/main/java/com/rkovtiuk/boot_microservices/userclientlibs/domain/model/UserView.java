@@ -1,13 +1,15 @@
-package com.rkovtiuk.boot_microservices.userclientlibs.domain.dto;
+package com.rkovtiuk.boot_microservices.userclientlibs.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UserView {
+public class UserView implements Serializable{
 
-    private long id;
+    private Integer id;
     private String forename;
     private String surname;
     private String organisation;
@@ -17,11 +19,27 @@ public class UserView {
     public UserView() {
     }
 
-    public long getId() {
+    public UserView(Integer id) {
+        String[] forenames = {"Alice", "Bartosz", "Mack"};
+        String[] surnames = {"Smith", "Salvatore", "Jedrzejewski", "Scott"};
+        String[] organisations = {"ScottLogic", "UNICEF"};
+
+        forename = forenames[id%3];
+        surname = surnames[id%4];
+        organisation = organisations[id%2];
+        notifications= new ArrayList<>();
+        notifications.add("You have been promoted!");
+        notifications.add("Sorry, disregard the previous notifaction- wrong user");
+        points = id * 31 % 1000;
+
+        this.id = id;
+    }
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

@@ -1,11 +1,11 @@
-package com.rkvotiuk.boot_microservice;
+package com.rkovtiuk.boot_microservices;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class UserServiceApplication {
+public class BootStorageHBApplication {
     public static void main(String[] args) {
-        SpringApplication.run(UserServiceApplication.class, args);
+        SpringApplication.run(BootStorageHBApplication.class, args);
     }
 }

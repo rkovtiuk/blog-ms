@@ -1,6 +1,6 @@
 package com.rkovtiuk.boot_microsevices.mvc.controller;
 
-import com.rkovtiuk.boot_microservices.userclientlibs.domain.dto.UserView;
+import com.rkovtiuk.boot_microservices.userclientlibs.domain.model.UserView;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
