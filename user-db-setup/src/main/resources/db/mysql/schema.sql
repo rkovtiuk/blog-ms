@@ -4,8 +4,6 @@ ALTER DATABASE boot_microservices
 DEFAULT CHARACTER SET utf8
 DEFAULT COLLATE utf8_general_ci;
 
-GRANT ALL PRIVILEGES ON boot_microservices.* TO root@localhost IDENTIFIED BY 'root';
-
 USE boot_microservices;
 
 CREATE TABLE IF NOT EXISTS users (

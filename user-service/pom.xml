@@ -71,6 +71,11 @@
             <artifactId>user-client-libs</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.rkovtiuk.boot_microservices</groupId>
+            <artifactId>user-db-setup</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>
