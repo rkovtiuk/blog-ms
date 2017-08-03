@@ -9,11 +9,11 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
+        <module>user-db-setup</module>
         <module>user-client-libs</module>
         <module>user-dashboard</module>
         <module>user-notification</module>
         <module>user-service</module>
-        <module>boot-storage-hb</module>
     </modules>
 
     <properties>

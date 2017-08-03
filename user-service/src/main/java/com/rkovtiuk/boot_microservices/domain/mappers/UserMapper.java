@@ -1,18 +1,16 @@
 package com.rkovtiuk.boot_microservices.domain.mappers;
 
 import com.rkovtiuk.boot_microservices.domain.entities.User;
-import com.rkovtiuk.boot_microservices.userclientlibs.domain.model.UserView;
+import com.rkovtiuk.boot_microservices.userclientlibs.domain.model.UserDTO;
 import org.springframework.stereotype.Component;
-
-import java.util.stream.Collectors;
 
 @Component
 public class UserMapper {
 
-    public UserView mapUser(User user){
+    public UserDTO mapUser(User user){
         if (user==null) return null;
 
-        UserView view = new UserView();
+        UserDTO view = new UserDTO();
         view.setId(user.getId());
         view.setForename(user.getForename());
         view.setSurname(user.getForename());

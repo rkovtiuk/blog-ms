@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UserView implements Serializable{
+public class UserDTO implements Serializable{
 
     private Integer id;
     private String forename;
@@ -16,23 +16,7 @@ public class UserView implements Serializable{
     private List<String> notifications;
     private long points;
 
-    public UserView() {
-    }
-
-    public UserView(Integer id) {
-        String[] forenames = {"Alice", "Bartosz", "Mack"};
-        String[] surnames = {"Smith", "Salvatore", "Jedrzejewski", "Scott"};
-        String[] organisations = {"ScottLogic", "UNICEF"};
-
-        forename = forenames[id%3];
-        surname = surnames[id%4];
-        organisation = organisations[id%2];
-        notifications= new ArrayList<>();
-        notifications.add("You have been promoted!");
-        notifications.add("Sorry, disregard the previous notifaction- wrong user");
-        points = id * 31 % 1000;
-
-        this.id = id;
+    public UserDTO() {
     }
 
     public Integer getId() {

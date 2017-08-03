@@ -3,7 +3,7 @@ package com.rkovtiuk.boot_microservices.services;
 import com.rkovtiuk.boot_microservices.domain.entities.User;
 import com.rkovtiuk.boot_microservices.domain.mappers.UserMapper;
 import com.rkovtiuk.boot_microservices.repository.UserRepository;
-import com.rkovtiuk.boot_microservices.userclientlibs.domain.model.UserView;
+import com.rkovtiuk.boot_microservices.userclientlibs.domain.model.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,13 +22,13 @@ public class UserService {
         this.userMapper = userMapper;
     }
 
-    public UserView getUserById(Integer id){
-        User user = userRepository.findOne(id);
+    public UserDTO getUserById(Integer id){
+        User user = userRepository.findById(id);
         return userMapper.mapUser(user);
     }
 
 
-    public List<UserView> getUsers() {
+    public List<UserDTO> getUsers() {
         return userRepository.findAll().stream().map(userMapper::mapUser).collect(Collectors.toList());
     }
 }
