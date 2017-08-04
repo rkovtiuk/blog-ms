@@ -2,6 +2,7 @@ package com.rkovtiuk.blog_ms.userclientlibs.domain.model;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.http.ResponseEntity;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class NotificationDTO {
@@ -9,9 +10,6 @@ public class NotificationDTO {
     private int id;
     private String title;
     private String text;
-
-    public NotificationDTO() {
-    }
 
     public int getId() {
         return id;
