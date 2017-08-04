@@ -5,20 +5,17 @@ import com.rkovtiuk.boot_microservices.services.NotificationService;
 import com.rkovtiuk.boot_microservices.userclientlibs.domain.model.NotificationDTO;
 import com.rkovtiuk.boot_microservices.userclientlibs.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-public class UserNotificationController {
+public class NotificationController {
 
     private final NotificationService service;
 
     @Autowired
-    public UserNotificationController(NotificationService service) {
+    public NotificationController(NotificationService service) {
         this.service = service;
     }
 

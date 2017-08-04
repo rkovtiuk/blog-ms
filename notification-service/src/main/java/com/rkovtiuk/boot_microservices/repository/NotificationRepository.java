@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface NotificationRepository extends Repository<Notification, Integer> {
 
-    @Query("select notification from Notification notification where notification.user.id = ?1")
+    @Query(value = "SELECT * FROM notifications WHERE user_id=?1", nativeQuery = true)
     List<Notification> findAllByUserId(Integer userId);
 
     Notification getById(Integer id);

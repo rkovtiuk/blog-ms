@@ -1,5 +1,6 @@
 package com.rkovtiuk.boot_microservices.services.impl;
 
+import com.rkovtiuk.boot_microservices.domain.mappers.NotificationMapper;
 import com.rkovtiuk.boot_microservices.domain.mappers.impl.NotificationMapperImpl;
 import com.rkovtiuk.boot_microservices.repository.NotificationRepository;
 import com.rkovtiuk.boot_microservices.services.NotificationService;
@@ -15,10 +16,10 @@ import java.util.stream.Collectors;
 public class NotificationServiceImpl implements NotificationService{
 
     private final NotificationRepository repository;
-    private final NotificationMapperImpl mapper;
+    private final NotificationMapper mapper;
 
     @Autowired
-    public NotificationServiceImpl(NotificationRepository repository, NotificationMapperImpl mapper) {
+    public NotificationServiceImpl(NotificationRepository repository, NotificationMapper mapper) {
         this.repository = repository;
         this.mapper = mapper;
     }
