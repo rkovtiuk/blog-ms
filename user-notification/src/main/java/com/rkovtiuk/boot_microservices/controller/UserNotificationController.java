@@ -1,26 +1,35 @@
 package com.rkovtiuk.boot_microservices.controller;
 
-
-import com.rkovtiuk.boot_microservices.userclientlibs.domain.model.UserDTO;
+import com.rkovtiuk.boot_microservices.domain.requests.NotificationRequest;
+import com.rkovtiuk.boot_microservices.services.NotificationService;
+import com.rkovtiuk.boot_microservices.userclientlibs.domain.model.NotificationDTO;
+import com.rkovtiuk.boot_microservices.userclientlibs.exception.NotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
+
+import java.util.List;
 
 @RestController
 public class UserNotificationController {
 
+    private final NotificationService service;
 
-    @RequestMapping("/notification")
-    public String getUser(@RequestParam(value="id", defaultValue="1") int id) {
-        RestTemplate restTemplate = new RestTemplate();
-        UserDTO user = restTemplate.getForObject("http://localhost:9001/user?id="+id, UserDTO.class);
-        StringBuilder response = new StringBuilder("NOTIFICATIONS");
-        int number = 1;
-        for(String notification : user.getNotifications()){
-            response.append("<BR> Notification number ").append(number++).append(": ").append(notification);
+    @Autowired
+    public UserNotificationController(NotificationService service) {
+        this.service = service;
+    }
+
+    @RequestMapping(value = "user/notifications", method = RequestMethod.POST)
+    public List<NotificationDTO> getUser(@RequestBody NotificationRequest request) {
+        try {
+            return service.getUserNotification(request.getId());
+        } catch (NotFoundException e) {
+            e.printStackTrace();
         }
-        return response.toString();
+        return null;
     }
 
 }

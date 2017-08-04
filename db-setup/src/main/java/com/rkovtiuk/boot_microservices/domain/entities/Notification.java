@@ -6,12 +6,23 @@ import javax.persistence.*;
 @Table(name = "notifications")
 public class Notification extends BaseEntity {
 
+    @Column(name = "title")
+    private String title;
+
     @Column(name = "text")
     private String text;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public String getText() {
         return text;
