@@ -1,6 +1,7 @@
 package com.rkovtiuk.boot_microservices.domain.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -14,6 +15,12 @@ public class User extends BaseEntity{
 
     @Column(name = "organisation")
     private String organisation;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Notification> notifications;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "author", cascade = CascadeType.ALL)
+    private List<Blog> writtenBlogs;
 
     @Column(name = "points")
     private long points;
@@ -44,6 +51,22 @@ public class User extends BaseEntity{
 
     public long getPoints() {
         return points;
+    }
+
+    public List<Notification> getNotifications() {
+        return notifications;
+    }
+
+    public void setNotifications(List<Notification> notifications) {
+        this.notifications = notifications;
+    }
+
+    public List<Blog> getUserBlogs() {
+        return writtenBlogs;
+    }
+
+    public void setUserBlogs(List<Blog> userBlogs) {
+        this.writtenBlogs = userBlogs;
     }
 
     public void setPoints(long points) {

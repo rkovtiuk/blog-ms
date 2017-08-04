@@ -1,4 +1,4 @@
-package com.rkovtiuk.boot_microservices.mvc.controller;
+package com.rkovtiuk.boot_microservices.controller;
 
 
 import com.rkovtiuk.boot_microservices.userclientlibs.domain.model.UserDTO;
