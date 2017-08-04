@@ -1,11 +1,11 @@
-package com.rkovtiuk.blog_ms.db;
+package com.rkovtiuk.blog_ms.dashboard;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class InitializatorApplication {
+public class DashboardApplication {
     public static void main(String[] args) {
-        SpringApplication.run(InitializatorApplication.class, args);
+        SpringApplication.run(DashboardApplication.class, args);
     }
 }

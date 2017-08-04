@@ -1,11 +1,11 @@
-package com.rkovtiuk.blog_ms.dashboard;
+package com.rkovtiuk.blog_ms.db;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class UserDashboardApplication {
+public class DatabaseSetupApplication {
     public static void main(String[] args) {
-        SpringApplication.run(UserDashboardApplication.class, args);
+        SpringApplication.run(DatabaseSetupApplication.class, args);
     }
 }
