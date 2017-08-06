@@ -1,6 +1,4 @@
-package com.rkovtiuk.blog_ms.userclientlibs.exception;
-
-import java.util.InputMismatchException;
+package com.rkovtiuk.blog_ms.core.exception;
 
 public class NotFoundException extends Exception{
 

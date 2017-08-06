@@ -1,8 +1,7 @@
-package com.rkovtiuk.blog_ms.userclientlibs.domain.model;
+package com.rkovtiuk.blog_ms.core.domain.model;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.springframework.http.ResponseEntity;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class NotificationDTO {

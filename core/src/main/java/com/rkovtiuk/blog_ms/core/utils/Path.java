@@ -1,4 +1,4 @@
-package com.rkovtiuk.blog_ms.userclientlibs.utils;
+package com.rkovtiuk.blog_ms.core.utils;
 
 public final class Path {
     private static final String DOMAIN = "http://localhost/";

@@ -3,8 +3,8 @@ package com.rkovtiuk.blog_ms.notification.services.impl;
 import com.rkovtiuk.blog_ms.notification.domain.mappers.NotificationMapper;
 import com.rkovtiuk.blog_ms.notification.repository.NotificationRepository;
 import com.rkovtiuk.blog_ms.notification.services.NotificationService;
-import com.rkovtiuk.blog_ms.userclientlibs.domain.model.NotificationDTO;
-import com.rkovtiuk.blog_ms.userclientlibs.exception.NotFoundException;
+import com.rkovtiuk.blog_ms.core.domain.model.NotificationDTO;
+import com.rkovtiuk.blog_ms.core.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

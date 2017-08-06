@@ -1,7 +1,7 @@
 package com.rkovtiuk.blog_ms.notification.services;
 
-import com.rkovtiuk.blog_ms.userclientlibs.domain.model.NotificationDTO;
-import com.rkovtiuk.blog_ms.userclientlibs.exception.NotFoundException;
+import com.rkovtiuk.blog_ms.core.domain.model.NotificationDTO;
+import com.rkovtiuk.blog_ms.core.exception.NotFoundException;
 
 import java.util.List;
 

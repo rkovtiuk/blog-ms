@@ -35,7 +35,7 @@
 		</dependency>
         <dependency>
             <groupId>com.rkovtiuk.blog_ms</groupId>
-            <artifactId>client-libs</artifactId>
+            <artifactId>core</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>

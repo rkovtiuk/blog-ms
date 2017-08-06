@@ -1,7 +1,7 @@
 package com.rkovtiuk.blog_ms.user.services;
 
-import com.rkovtiuk.blog_ms.userclientlibs.domain.model.UserDTO;
-import com.rkovtiuk.blog_ms.userclientlibs.domain.requests.user.UserCreateRequest;
+import com.rkovtiuk.blog_ms.core.domain.model.UserDTO;
+import com.rkovtiuk.blog_ms.core.domain.requests.user.UserCreateRequest;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.rkovtiuk.blog_ms.userclientlibs.domain.requests.user;
+package com.rkovtiuk.blog_ms.core.domain.requests.user;
 
 public class UserCreateRequest {
 

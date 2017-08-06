@@ -9,10 +9,9 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <!-- init modules -->
+        <module>core</module>
         <module>db-setup</module>
-        <!-- lib modules -->
-        <module>client-libs</module>
+
         <!-- services -->
         <module>notification-service</module>
         <module>dashboard-service</module>
