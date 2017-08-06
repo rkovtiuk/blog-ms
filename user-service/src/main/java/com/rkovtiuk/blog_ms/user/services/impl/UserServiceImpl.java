@@ -27,18 +27,17 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDTO getUserById(Integer id){
         User user = userRepository.findById(id);
-        return userMapper.map(user);
+        return userMapper.mapToView(user);
     }
 
     @Override
     public List<UserDTO> getUsers() {
-        return userRepository.findAll().stream().map(userMapper::map).collect(Collectors.toList());
+        return userRepository.findAll().stream().map(userMapper::mapToView).collect(Collectors.toList());
     }
 
     @Override
     public UserDTO createUser(UserCreateRequest newUser) {
-        User user = null;
-//        user = userRepository.createUser(newUser);
-        return userMapper.map(user);
+        User user = userRepository.save(userMapper.mapToEntity(newUser));
+        return userMapper.mapToView(user);
     }
 }

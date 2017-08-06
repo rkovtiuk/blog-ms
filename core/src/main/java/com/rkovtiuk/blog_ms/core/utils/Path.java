@@ -6,6 +6,10 @@ public final class Path {
     private static final String NOTIFICATION_API = DOMAIN+"9002";
     private static final String DASHBOARD_API = DOMAIN+"9003";
 
+    public final class Params {
+        public static final String AUTH_HEADER_NAME = "X-Auth-Token";
+    }
+
     public final class UserApi {
         public static final String USER_PATH = "/user";
         public static final String GET_USER_DETAILS = USER_API + USER_PATH + "?id=";

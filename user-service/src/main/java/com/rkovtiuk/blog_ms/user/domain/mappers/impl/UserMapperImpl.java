@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class UserMapperImpl implements UserMapper {
 
     @Override
-    public UserDTO map(Object user){
+    public UserDTO mapToView(Object user){
         UserDTO view = null;
         if (user==null) {
             return null;
@@ -22,8 +22,6 @@ public class UserMapperImpl implements UserMapper {
             UserCreateRequest userModel = (UserCreateRequest) user;
             view = createUser(userModel.getForename(), userModel.getSurname(), userModel.getOrganisation(), userModel.getPoints());
         }
-
-
         return view;
     }
 
@@ -34,5 +32,20 @@ public class UserMapperImpl implements UserMapper {
         view.setOrganisation(organisation);
         view.setPoints(points);
         return view;
+    }
+
+    @Override
+    public User mapToEntity(Object user){
+        User entity = null;
+        if (user == null)
+            return null;
+        else if (user instanceof UserCreateRequest) {
+            entity = new User();
+            entity.setForename(((UserCreateRequest) user).getForename());
+            entity.setSurname(((UserCreateRequest) user).getSurname());
+            entity.setOrganisation(((UserCreateRequest) user).getOrganisation());
+            entity.setPoints(((UserCreateRequest) user).getPoints());
+        }
+        return entity;
     }
 }

@@ -9,9 +9,7 @@ public interface UserRepository extends Repository<User, Integer> {
 
     User findById(Integer id);
 
-    void save(User user);
-
     List<User> findAll();
 
-
+    User save(User user);
 }
