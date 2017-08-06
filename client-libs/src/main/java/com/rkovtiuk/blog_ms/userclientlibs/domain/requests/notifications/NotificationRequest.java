@@ -1,4 +1,4 @@
-package com.rkovtiuk.blog_ms.notification.domain.requests;
+package com.rkovtiuk.blog_ms.userclientlibs.domain.requests.notifications;
 
 import java.io.Serializable;
 

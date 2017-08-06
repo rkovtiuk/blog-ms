@@ -5,6 +5,7 @@ import com.rkovtiuk.blog_ms.user.domain.mappers.UserMapper;
 import com.rkovtiuk.blog_ms.user.repository.UserRepository;
 import com.rkovtiuk.blog_ms.user.services.UserService;
 import com.rkovtiuk.blog_ms.userclientlibs.domain.model.UserDTO;
+import com.rkovtiuk.blog_ms.userclientlibs.domain.requests.user.UserCreateRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,11 +27,18 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDTO getUserById(Integer id){
         User user = userRepository.findById(id);
-        return userMapper.mapUser(user);
+        return userMapper.map(user);
     }
 
     @Override
     public List<UserDTO> getUsers() {
-        return userRepository.findAll().stream().map(userMapper::mapUser).collect(Collectors.toList());
+        return userRepository.findAll().stream().map(userMapper::map).collect(Collectors.toList());
+    }
+
+    @Override
+    public UserDTO createUser(UserCreateRequest newUser) {
+        User user = null;
+//        user = userRepository.createUser(newUser);
+        return userMapper.map(user);
     }
 }

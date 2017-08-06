@@ -1,13 +1,18 @@
 package com.rkovtiuk.blog_ms.user.controllers;
 
 import com.rkovtiuk.blog_ms.user.services.UserService;
+import com.rkovtiuk.blog_ms.userclientlibs.domain.model.NotificationDTO;
 import com.rkovtiuk.blog_ms.userclientlibs.domain.model.UserDTO;
+import com.rkovtiuk.blog_ms.userclientlibs.domain.requests.user.UserCreateRequest;
+import com.rkovtiuk.blog_ms.userclientlibs.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
+import static com.rkovtiuk.blog_ms.userclientlibs.utils.Path.UserApi.GET_USERS;
+import static com.rkovtiuk.blog_ms.userclientlibs.utils.Path.UserApi.GET_USER_DETAILS;
+import static com.rkovtiuk.blog_ms.userclientlibs.utils.Path.UserApi.PUT_USER;
 
 @RestController
 public class UserController {
@@ -19,13 +24,18 @@ public class UserController {
         this.userService = userService;
     }
 
-    @RequestMapping("/user")
+    @RequestMapping(GET_USER_DETAILS)
     public UserDTO getUser(@RequestParam(value = "id", defaultValue = "1") int id){
         return userService.getUserById(id);
     }
 
-    @RequestMapping("/users")
+    @RequestMapping(GET_USERS)
     public List<UserDTO> getUsers(){
         return userService.getUsers();
+    }
+
+    @RequestMapping(PUT_USER)
+    public @ResponseBody UserDTO createUser(@RequestBody UserCreateRequest request) {
+        return userService.createUser(request);
     }
 }

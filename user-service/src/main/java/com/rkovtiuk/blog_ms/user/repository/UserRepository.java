@@ -12,4 +12,6 @@ public interface UserRepository extends Repository<User, Integer> {
     void save(User user);
 
     List<User> findAll();
+
+
 }
