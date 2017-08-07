@@ -1,5 +1,6 @@
 package com.rkovtiuk.blog_ms.user.services.impl;
 
+import com.rkovtiuk.blog_ms.core.domain.response.BaseResponse;
 import com.rkovtiuk.blog_ms.db.domain.entities.User;
 import com.rkovtiuk.blog_ms.user.domain.mappers.UserMapper;
 import com.rkovtiuk.blog_ms.user.repository.UserRepository;
