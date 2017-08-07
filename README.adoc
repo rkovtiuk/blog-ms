@@ -1,4 +1,6 @@
-== Description
+= BlobMS
+
+=== Description
 
 There is a sample application
 https://github.com/rkovtiuk/BlogMS/[here]. It
@@ -35,5 +37,5 @@ The server is a Spring Boot application so you can run it from your
 IDE instead if you prefer (the main class is
 `ConfigServerApplication`). 
 
-
+===== https://github.com/rkovtiuk[author]
 
