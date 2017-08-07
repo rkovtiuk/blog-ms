@@ -12,9 +12,9 @@ public final class Path {
 
     public final class UserApi {
         public static final String USER_PATH = "/user";
-        public static final String GET_USER_DETAILS = USER_API + USER_PATH + "?id=";
-        public static final String GET_USERS = USER_API + USER_PATH + "/all";
-        public static final String PUT_USER = USER_API + USER_PATH + "/add";
+        public static final String GET_USERS = "/users";
+        public static final String GET_USER_DETAILS = USER_PATH;
+        public static final String CREATE_USER = USER_PATH + "/add";
     }
 
     public final class NotificationApi{

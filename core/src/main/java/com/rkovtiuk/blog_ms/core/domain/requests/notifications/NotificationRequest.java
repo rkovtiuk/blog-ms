@@ -1,8 +1,8 @@
 package com.rkovtiuk.blog_ms.core.domain.requests.notifications;
 
-import java.io.Serializable;
+import com.rkovtiuk.blog_ms.core.domain.requests.BaseRequest;
 
-public class NotificationRequest implements Serializable {
+public class NotificationRequest extends BaseRequest{
 
     private Integer id;
 

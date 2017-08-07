@@ -1,6 +1,8 @@
 package com.rkovtiuk.blog_ms.core.domain.requests.user;
 
-public class UserCreateRequest {
+import com.rkovtiuk.blog_ms.core.domain.requests.BaseRequest;
+
+public class UserCreateRequest extends BaseRequest {
 
     private String forename;
     private String surname;
