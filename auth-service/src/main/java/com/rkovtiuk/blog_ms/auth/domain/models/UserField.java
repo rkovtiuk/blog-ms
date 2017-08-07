@@ -1,4 +1,4 @@
-package com.rkovtiuk.blog_ms.db.domain.auth_role;
+package com.rkovtiuk.blog_ms.auth.domain.models;
 
 public enum UserField {
     USER_NAME("username");

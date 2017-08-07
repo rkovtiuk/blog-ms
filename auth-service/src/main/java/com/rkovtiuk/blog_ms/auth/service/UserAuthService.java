@@ -1,8 +1,7 @@
 package com.rkovtiuk.blog_ms.auth.service;
 
 import com.rkovtiuk.blog_ms.auth.repository.AuthRepository;
-import com.rkovtiuk.blog_ms.db.domain.entities.AuthUser;
-import com.rkovtiuk.blog_ms.db.domain.entities.User;
+import com.rkovtiuk.blog_ms.auth.domain.models.AuthUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

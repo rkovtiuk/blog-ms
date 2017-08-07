@@ -1,20 +1,15 @@
-package com.rkovtiuk.blog_ms.db.domain.entities;
+package com.rkovtiuk.blog_ms.auth.domain.models;
 
-import com.rkovtiuk.blog_ms.db.domain.auth_role.Role;
 import com.rkovtiuk.blog_ms.db.domain.entities.BaseEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
 import java.util.Collection;
 import java.util.List;
 
-@Entity
-@Table(name = "auth_users")
+//@Entity
+//@Table(name = "auth_users")
 public class AuthUser extends BaseEntity implements UserDetails {
-
 
     private String username;
     private List<Role> authorities;
@@ -24,39 +19,38 @@ public class AuthUser extends BaseEntity implements UserDetails {
     private boolean credentialsNonExpired;
     private boolean enabled;
 
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return authorities;
     }
 
     @Override
     public String getPassword() {
-        return null;
+        return password;
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return username;
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return accountNonExpired;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return accountNonLocked;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return accountNonExpired;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return enabled;
     }
 }

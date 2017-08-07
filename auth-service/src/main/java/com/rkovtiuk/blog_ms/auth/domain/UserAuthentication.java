@@ -1,7 +1,6 @@
 package com.rkovtiuk.blog_ms.auth.domain;
 
-import com.rkovtiuk.blog_ms.db.domain.entities.AuthUser;
-import com.rkovtiuk.blog_ms.db.domain.entities.User;
+import com.rkovtiuk.blog_ms.auth.domain.models.AuthUser;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 
