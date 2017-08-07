@@ -1,6 +1,4 @@
-# Blog :book:
-
-= Description
+== Description
 
 There is a sample application
 https://github.com/rkovtiuk/BlogMS/[here]. It
@@ -24,7 +22,7 @@ directory of the git repository, so you can make local changes there
 and see them reflected in the running app.
 
 
-== Quick Start
+=== Quick Start
 
 Start the server:
 
