@@ -1,12 +1,14 @@
-= BlobMS
+[![Build Status](https://travis-ci.org/rkovtiuk/BlogMS.svg?branch=master)](https://travis-ci.org/rkovtiuk/BlogMS)
 
-=== Description
+# BlobMS 
+
+### Description
 
 There is a sample application
-https://github.com/rkovtiuk/BlogMS/[here]. It
+[here](https://github.com/rkovtiuk/BlogMS/). It
 is a Spring Boot application so you can run it using the usual
 mechanisms (for instance "mvn spring-boot:run"). When it runs it will
-look for the config server on "http://localhost:8888" by default, so
+look for the config server on http://localhost:8888 by default, so
 you could run the server as well to see it all working together.
 
 The sample has a test case where the config server is also started in
@@ -24,18 +26,18 @@ directory of the git repository, so you can make local changes there
 and see them reflected in the running app.
 
 
-=== Quick Start
+### Quick Start
 
 Start the server:
 
-----
+```
 $ cd 'spring-service'
 $ mvn spring-boot:run
-----
+```
 
 The server is a Spring Boot application so you can run it from your
 IDE instead if you prefer (the main class is
 `ConfigServerApplication`). 
 
-===== https://github.com/rkovtiuk[author]
+#### [author](https://github.com/rkovtiuk)
 
