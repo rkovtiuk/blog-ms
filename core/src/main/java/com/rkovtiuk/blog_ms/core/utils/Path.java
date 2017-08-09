@@ -4,7 +4,7 @@ public final class Path {
     private static final String DOMAIN = "http://localhost/";
     private static final String USER_API = DOMAIN + "9001";
     private static final String NOTIFICATION_API = DOMAIN+"9002";
-    private static final String DASHBOARD_API = DOMAIN+"9003";
+    private static final String BLOG_API = DOMAIN+"9003";
 
     public final class Params {
         public static final String AUTH_HEADER_NAME = "X-Auth-Token";
@@ -18,10 +18,12 @@ public final class Path {
     }
 
     public final class NotificationApi{
-        public static final String GET_USER_NOTIFICATIONS = "notifications";
+        public static final String GET_USER_NOTIFICATIONS = "/notifications";
     }
 
     public final class BlogApi{
-        public static final String DASHBOARD = "dashboard";
+        public static final String DASHBOARD = "/dashboard";
+        public static final String GET_BLOGS_BY_AUTHOR = "/blogs/author/{id}";
+        public static final String GET_BLOGS_BY_CATEGORY = "/blogs";
     }
 }

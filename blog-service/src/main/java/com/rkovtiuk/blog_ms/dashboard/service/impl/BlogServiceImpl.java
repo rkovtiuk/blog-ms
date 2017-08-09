@@ -30,4 +30,16 @@ public class BlogServiceImpl implements BlogService {
         PageRequest pageRequest = new PageRequest(page, PER_PAGE, null,null);
         return blogMapper.map(blogRepository.findAllOrderByCreatedDate(pageRequest));
     }
+
+    @Override
+    public List<BlogDTO> getBlogsByAuthor(int page, int authorId) {
+        PageRequest pageRequest = new PageRequest(page, PER_PAGE, null,null);
+        return blogMapper.map(blogRepository.findAllByAuthorId(authorId, pageRequest));
+    }
+
+    @Override
+    public List<BlogDTO> getBlogsByCategory(int page, int categoryId) {
+        PageRequest pageRequest = new PageRequest(page, PER_PAGE, null,null);
+        return blogMapper.map(blogRepository.findAllByBlogCategoryIdOrderByCreatedDate(categoryId, pageRequest));
+    }
 }

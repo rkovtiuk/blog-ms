@@ -11,10 +11,10 @@ public interface BlogRepository extends Repository<Blog, Integer>{
 
     Blog findById(Integer id);
 
-    List<Blog> findByAuthorId(Integer id);
-
     Page<Blog> findAllOrderByCreatedDate(Pageable pageable);
 
-    Page<Blog> findAllByBlogCategoryIdOrderByCreatedDate(Pageable pageable);
+    Page<Blog> findAllByAuthorId(Integer id, Pageable pageable);
+
+    Page<Blog> findAllByBlogCategoryIdOrderByCreatedDate(Integer id, Pageable pageable);
 
 }

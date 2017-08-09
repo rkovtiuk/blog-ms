@@ -6,4 +6,8 @@ import java.util.List;
 
 public interface BlogService {
     List<BlogDTO> dashboard(int page);
+
+    List<BlogDTO> getBlogsByAuthor(int page, int authorId);
+
+    List<BlogDTO> getBlogsByCategory(int page, int categoryId);
 }
