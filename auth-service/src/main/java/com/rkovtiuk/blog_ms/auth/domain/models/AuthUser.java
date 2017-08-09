@@ -1,9 +1,11 @@
 package com.rkovtiuk.blog_ms.auth.domain.models;
 
 import com.rkovtiuk.blog_ms.db.domain.entities.BaseEntity;
+import com.rkovtiuk.blog_ms.db.domain.entities.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
 

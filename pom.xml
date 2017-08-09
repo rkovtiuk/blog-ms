@@ -14,7 +14,7 @@
 
         <!-- services -->
         <module>notification-service</module>
-        <module>dashboard-service</module>
+        <module>blog-service</module>
         <module>user-service</module>
         <module>auth-service</module>
     </modules>

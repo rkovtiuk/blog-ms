@@ -1,6 +1,7 @@
 package com.rkovtiuk.blog_ms.db.domain.entities;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "blogs")
@@ -11,6 +12,10 @@ public class Blog extends BaseEntity{
 
     @Column(name = "text")
     private String text;
+
+    @Temporal(TemporalType.DATE)
+    @Column(name = "created_date")
+    private Date createdDate;
 
     @ManyToOne
     @JoinColumn(name = "blog_category_id")
@@ -34,6 +39,14 @@ public class Blog extends BaseEntity{
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
     }
 
     public BlogCategory getBlogCategory() {

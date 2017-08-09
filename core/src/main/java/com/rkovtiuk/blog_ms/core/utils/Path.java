@@ -18,6 +18,10 @@ public final class Path {
     }
 
     public final class NotificationApi{
-        public static final String GET_USER_NOTIFICATIONS = NOTIFICATION_API + "notifications?user_id=";
+        public static final String GET_USER_NOTIFICATIONS = "notifications";
+    }
+
+    public final class BlogApi{
+        public static final String DASHBOARD = "dashboard";
     }
 }
