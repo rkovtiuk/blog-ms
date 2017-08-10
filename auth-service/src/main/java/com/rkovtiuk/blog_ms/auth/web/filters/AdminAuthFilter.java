@@ -1,11 +1,8 @@
 package com.rkovtiuk.blog_ms.auth.web.filters;
 
-import com.rkovtiuk.blog_ms.auth.domain.UserAuthentication;
-import com.rkovtiuk.blog_ms.auth.domain.models.AuthUser;
 import com.rkovtiuk.blog_ms.auth.service.UserAuthService;
 import com.rkovtiuk.blog_ms.db.domain.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.GenericFilterBean;
 
 import javax.annotation.PostConstruct;
@@ -23,12 +20,12 @@ public class AdminAuthFilter extends GenericFilterBean{
 
     @PostConstruct
     public void init() {
-        admin = (User) userAuthService.loadUserByUsername("admin");
+//        admin = (User) userAuthService.loadUserByUsername("admin");
     }
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        SecurityContextHolder.getContext().setAuthentication(new UserAuthentication(new AuthUser()));
-        filterChain.doFilter(servletRequest, servletResponse);
+//        SecurityContextHolder.getContext().setAuthentication(new UserAuthentication(new AuthUser()));
+//        filterChain.doFilter(servletRequest, servletResponse);
     }
 }
