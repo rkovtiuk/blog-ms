@@ -7,6 +7,9 @@ import java.util.List;
 @Table(name = "users")
 public class User extends BaseEntity{
 
+    @Column(name = "email")
+    private String email;
+
     @Column(name = "forename")
     private String forename;
 
@@ -22,8 +25,19 @@ public class User extends BaseEntity{
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "author", cascade = CascadeType.ALL)
     private List<Blog> writtenBlogs;
 
+    @Column(name = "password")
+    private String password;
+
     @Column(name = "points")
     private long points;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public String getForename() {
         return forename;
@@ -71,5 +85,21 @@ public class User extends BaseEntity{
 
     public void setPoints(long points) {
         this.points = points;
+    }
+
+    public List<Blog> getWrittenBlogs() {
+        return writtenBlogs;
+    }
+
+    public void setWrittenBlogs(List<Blog> writtenBlogs) {
+        this.writtenBlogs = writtenBlogs;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
