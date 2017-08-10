@@ -1,13 +1,12 @@
 package com.rkovtiuk.blog_ms.auth.repository;
 
-import com.rkovtiuk.blog_ms.auth.domain.models.AuthUser;
+import com.rkovtiuk.blog_ms.db.domain.entities.Token;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.Repository;
 
-import java.util.Optional;
+public interface AuthRepository extends CrudRepository<Token, Integer> {
 
-public interface AuthRepository extends CrudRepository<AuthUser, Integer> {
+    Token findBySessionToken(String sessionToken);
 
-    AuthUser findByUsername(String name);
-
-    Optional<AuthUser> findById(Integer id);
+    void removeBySessionToken(String token);
 }

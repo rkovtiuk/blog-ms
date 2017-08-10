@@ -1,4 +1,4 @@
-package com.rkovtiuk.blog_ms.auth.service;
+package com.rkovtiuk.blog_ms.auth.domain.handlers;
 
 import com.google.common.io.BaseEncoding;
 import io.jsonwebtoken.Claims;

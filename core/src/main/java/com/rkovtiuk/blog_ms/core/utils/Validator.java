@@ -13,4 +13,8 @@ public class Validator {
         return m.matches();
     }
 
+    public static boolean isActiveToken(long tokenDate, long nowDate, long tokenLifeTime){
+        return tokenDate+tokenLifeTime > nowDate;
+    }
+
 }

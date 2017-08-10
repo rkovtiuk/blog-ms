@@ -4,6 +4,7 @@ import com.rkovtiuk.blog_ms.core.domain.requests.user.SignInRequest;
 import com.rkovtiuk.blog_ms.core.domain.response.BaseResponse;
 import com.rkovtiuk.blog_ms.core.domain.response.user.LoginResponse;
 import com.rkovtiuk.blog_ms.core.exception.*;
+import com.rkovtiuk.blog_ms.core.utils.Path;
 import com.rkovtiuk.blog_ms.db.domain.entities.User;
 import com.rkovtiuk.blog_ms.user.services.UserService;
 import com.rkovtiuk.blog_ms.core.domain.model.UserDTO;
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
@@ -66,7 +68,7 @@ public class UserController {
     // TODO: 10.08.17 add logic
     public String getSessionToken(String email){
 //        RestTemplate rest = new RestTemplate();
-//        rest.
+//        rest.getForObject(Path.AuthApi.CREATE_TOKEN, String.class);
         return "123123123";
     }
 

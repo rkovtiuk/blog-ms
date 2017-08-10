@@ -13,6 +13,7 @@ public final class Path {
         public static final String CREATE_TOKEN = TOKEN + "/create";
         public static final String REMOVE_TOKEN = TOKEN + "/remove";
         public static final String ACTIVE_TOKEN = TOKEN + "/is_active";
+        public static final String USER_ID_BY_TOKEN = TOKEN + "/get_user_id";
         public static final String TOKEN_HEADER_NAME = "X-Auth-Token";
     }
 
