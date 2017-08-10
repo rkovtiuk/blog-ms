@@ -6,9 +6,8 @@ import com.rkovtiuk.blog_ms.user.domain.mappers.UserMapper;
 import com.rkovtiuk.blog_ms.user.repository.UserRepository;
 import com.rkovtiuk.blog_ms.user.services.UserService;
 import com.rkovtiuk.blog_ms.core.domain.model.UserDTO;
-import com.rkovtiuk.blog_ms.core.domain.requests.user.SingInRequest;
+import com.rkovtiuk.blog_ms.core.domain.requests.user.SingUpRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -38,8 +37,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public LoginResponse createUser(SingInRequest newUser) {
-        User user = userRepository.save(userMapper.mapToEntity(newUser));
-        return null;
+    public LoginResponse createUser(SingUpRequest newUser) {
+        return userMapper.mapToLoginResponse(userRepository.save(userMapper.mapToEntity(newUser)));
+    }
+
+    @Override
+    public LoginResponse getLoginUser(String email, String password) {
+        return userMapper.mapToLoginResponse(userRepository.findByEmailAndPassword(email, password));
     }
 }

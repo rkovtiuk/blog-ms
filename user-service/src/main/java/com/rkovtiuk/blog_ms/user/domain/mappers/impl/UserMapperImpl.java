@@ -1,9 +1,10 @@
 package com.rkovtiuk.blog_ms.user.domain.mappers.impl;
 
+import com.rkovtiuk.blog_ms.core.domain.response.user.LoginResponse;
 import com.rkovtiuk.blog_ms.db.domain.entities.User;
 import com.rkovtiuk.blog_ms.user.domain.mappers.UserMapper;
 import com.rkovtiuk.blog_ms.core.domain.model.UserDTO;
-import com.rkovtiuk.blog_ms.core.domain.requests.user.SingInRequest;
+import com.rkovtiuk.blog_ms.core.domain.requests.user.SingUpRequest;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -37,14 +38,25 @@ public class UserMapperImpl implements UserMapper {
         User entity = null;
         if (user == null)
             return null;
-        else if (user instanceof SingInRequest) {
+        else if (user instanceof SingUpRequest) {
             entity = new User();
-            entity.setEmail(((SingInRequest) user).getForename());
-            entity.setForename(((SingInRequest) user).getForename());
-            entity.setSurname(((SingInRequest) user).getSurname());
-            entity.setOrganisation(((SingInRequest) user).getOrganisation());
-            entity.setPassword(((SingInRequest) user).getPassword());
+            entity.setEmail(((SingUpRequest) user).getForename());
+            entity.setForename(((SingUpRequest) user).getForename());
+            entity.setSurname(((SingUpRequest) user).getSurname());
+            entity.setOrganisation(((SingUpRequest) user).getOrganisation());
+            entity.setPassword(((SingUpRequest) user).getPassword());
         }
         return entity;
+    }
+
+    @Override
+    public LoginResponse mapToLoginResponse(User user) {
+        LoginResponse response = new LoginResponse();
+        response.setEmail(user.getEmail());
+        response.setForename(user.getForename());
+        response.setSurname(user.getSurname());
+        response.setOrganisation(user.getOrganisation());
+        response.setPoints(user.getPoints());
+        return response;
     }
 }
