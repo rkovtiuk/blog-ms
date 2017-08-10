@@ -3,7 +3,7 @@ package com.rkovtiuk.blog_ms.user.domain.mappers.impl;
 import com.rkovtiuk.blog_ms.db.domain.entities.User;
 import com.rkovtiuk.blog_ms.user.domain.mappers.UserMapper;
 import com.rkovtiuk.blog_ms.core.domain.model.UserDTO;
-import com.rkovtiuk.blog_ms.core.domain.requests.user.UserCreateRequest;
+import com.rkovtiuk.blog_ms.core.domain.requests.user.SingInRequest;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -18,10 +18,8 @@ public class UserMapperImpl implements UserMapper {
             User userModel = (User) user;
             view = createUser(userModel.getForename(), userModel.getSurname(), userModel.getOrganisation(), userModel.getPoints());
             view.setId(userModel.getId());
-        } else if (user instanceof UserCreateRequest){
-            UserCreateRequest userModel = (UserCreateRequest) user;
-            view = createUser(userModel.getForename(), userModel.getSurname(), userModel.getOrganisation(), userModel.getPoints());
         }
+
         return view;
     }
 
@@ -39,12 +37,13 @@ public class UserMapperImpl implements UserMapper {
         User entity = null;
         if (user == null)
             return null;
-        else if (user instanceof UserCreateRequest) {
+        else if (user instanceof SingInRequest) {
             entity = new User();
-            entity.setForename(((UserCreateRequest) user).getForename());
-            entity.setSurname(((UserCreateRequest) user).getSurname());
-            entity.setOrganisation(((UserCreateRequest) user).getOrganisation());
-            entity.setPoints(((UserCreateRequest) user).getPoints());
+            entity.setEmail(((SingInRequest) user).getForename());
+            entity.setForename(((SingInRequest) user).getForename());
+            entity.setSurname(((SingInRequest) user).getSurname());
+            entity.setOrganisation(((SingInRequest) user).getOrganisation());
+            entity.setPassword(((SingInRequest) user).getPassword());
         }
         return entity;
     }

@@ -1,13 +1,14 @@
 package com.rkovtiuk.blog_ms.user.services.impl;
 
-import com.rkovtiuk.blog_ms.core.domain.response.BaseResponse;
+import com.rkovtiuk.blog_ms.core.domain.response.user.LoginResponse;
 import com.rkovtiuk.blog_ms.db.domain.entities.User;
 import com.rkovtiuk.blog_ms.user.domain.mappers.UserMapper;
 import com.rkovtiuk.blog_ms.user.repository.UserRepository;
 import com.rkovtiuk.blog_ms.user.services.UserService;
 import com.rkovtiuk.blog_ms.core.domain.model.UserDTO;
-import com.rkovtiuk.blog_ms.core.domain.requests.user.UserCreateRequest;
+import com.rkovtiuk.blog_ms.core.domain.requests.user.SingInRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -37,8 +38,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDTO createUser(UserCreateRequest newUser) {
+    public LoginResponse createUser(SingInRequest newUser) {
         User user = userRepository.save(userMapper.mapToEntity(newUser));
-        return userMapper.mapToView(user);
+        return null;
     }
 }
