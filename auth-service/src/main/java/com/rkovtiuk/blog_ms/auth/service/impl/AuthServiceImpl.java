@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.Objects;
 
 @Service
 public class AuthServiceImpl implements AuthService {
@@ -32,6 +33,9 @@ public class AuthServiceImpl implements AuthService {
         token.setCreatedAt(new Date().getTime());
         token.setSessionToken(accessToken);
         token.setUser(request.getUser());
+        Token tokenFromDB = repository.findBySessionToken(accessToken);
+        if (tokenFromDB!=null && Objects.equals(tokenFromDB.getUser().getId(), request.getUser().getId()))
+            token.setId(tokenFromDB.getId());
         repository.save(token);
         return token.getSessionToken();
     }

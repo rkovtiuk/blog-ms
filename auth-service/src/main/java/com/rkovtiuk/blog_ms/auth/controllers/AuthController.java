@@ -16,10 +16,14 @@ import static com.rkovtiuk.blog_ms.core.utils.Validator.isEmpty;
 @RestController
 public class AuthController {
 
-    @Autowired
-    private AuthService authService;
+    private final AuthService authService;
 
-    @RequestMapping(value = CREATE_TOKEN)
+    @Autowired
+    public AuthController(AuthService authService) {
+        this.authService = authService;
+    }
+
+    @RequestMapping(value = CREATE_TOKEN, method = RequestMethod.POST)
     public @ResponseBody String createToken(@RequestBody CreateTokenRequest request){
         return authService.createToken(request);
     }
