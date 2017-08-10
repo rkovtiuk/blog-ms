@@ -2,7 +2,7 @@ package com.rkovtiuk.blog_ms.core.domain.requests.user;
 
 import com.rkovtiuk.blog_ms.core.domain.requests.BaseRequest;
 
-public class SingInRequest extends BaseRequest {
+public class SingUpRequest extends BaseRequest {
 
     private String forename;
     private String surname;
