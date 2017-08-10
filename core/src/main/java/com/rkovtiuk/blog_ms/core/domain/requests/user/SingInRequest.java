@@ -2,12 +2,14 @@ package com.rkovtiuk.blog_ms.core.domain.requests.user;
 
 import com.rkovtiuk.blog_ms.core.domain.requests.BaseRequest;
 
-public class UserCreateRequest extends BaseRequest {
+public class SingInRequest extends BaseRequest {
 
     private String forename;
     private String surname;
+    private String email;
     private String organisation;
-    private long points;
+    private String password;
+    private String confirmPassword;
 
     public String getForename() {
         return forename;
@@ -33,11 +35,27 @@ public class UserCreateRequest extends BaseRequest {
         this.organisation = organisation;
     }
 
-    public long getPoints() {
-        return points;
+    public String getEmail() {
+        return email;
     }
 
-    public void setPoints(long points) {
-        this.points = points;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
     }
 }

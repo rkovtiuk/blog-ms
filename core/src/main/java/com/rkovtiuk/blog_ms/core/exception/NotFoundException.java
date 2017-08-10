@@ -3,7 +3,7 @@ package com.rkovtiuk.blog_ms.core.exception;
 public class NotFoundException extends Exception{
 
     public NotFoundException() {
-        super();
+        super("Not found exception");
     }
 
     public NotFoundException(String s) {
