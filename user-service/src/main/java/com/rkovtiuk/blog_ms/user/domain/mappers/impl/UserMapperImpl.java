@@ -52,6 +52,7 @@ public class UserMapperImpl implements UserMapper {
     @Override
     public LoginResponse mapToLoginResponse(User user) {
         LoginResponse response = new LoginResponse();
+        response.setId(user.getId());
         response.setEmail(user.getEmail());
         response.setForename(user.getForename());
         response.setSurname(user.getSurname());

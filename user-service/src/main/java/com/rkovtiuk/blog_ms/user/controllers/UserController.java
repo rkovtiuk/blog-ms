@@ -1,5 +1,6 @@
 package com.rkovtiuk.blog_ms.user.controllers;
 
+import com.rkovtiuk.blog_ms.core.domain.requests.auth.CreateTokenRequest;
 import com.rkovtiuk.blog_ms.core.domain.requests.user.SignInRequest;
 import com.rkovtiuk.blog_ms.core.domain.response.BaseResponse;
 import com.rkovtiuk.blog_ms.core.domain.response.user.LoginResponse;
@@ -31,6 +32,15 @@ public class UserController {
         this.userService = userService;
     }
 
+    private String getSessionToken(Integer id){
+        CreateTokenRequest request = new CreateTokenRequest();
+        User user = new User();
+        user.setId(id);
+        request.setUser(user);
+        RestTemplate rest = new RestTemplate();
+        return rest.postForObject(Path.AuthApi.CREATE_TOKEN, request, String.class);
+    }
+
     @RequestMapping(value = GET_USER_DETAILS, method = RequestMethod.GET)
     public UserDTO getUser(@RequestParam(value = "id", defaultValue = "1") int id){
         return userService.getUserById(id);
@@ -49,7 +59,7 @@ public class UserController {
         if (request.getPassword().equals(request.getConfirmPassword())) throw  new PasswordDontMatch();
 
         LoginResponse user = userService.createUser(request);
-        user.setSessionToken(getSessionToken(request.getEmail()));
+        user.setSessionToken(getSessionToken(user.getId()));
         return user;
     }
 
@@ -61,15 +71,8 @@ public class UserController {
         LoginResponse response = userService.getLoginUser(request.getEmail(), request.getPassword());
         if (response==null) throw new WrongPassOrEmailException();
 
-        response.setSessionToken(getSessionToken(request.getEmail()));
+        response.setSessionToken(getSessionToken(response.getId()));
         return response;
-    }
-
-    // TODO: 10.08.17 add logic
-    public String getSessionToken(String email){
-//        RestTemplate rest = new RestTemplate();
-//        rest.getForObject(Path.AuthApi.CREATE_TOKEN, String.class);
-        return "123123123";
     }
 
     @ExceptionHandler

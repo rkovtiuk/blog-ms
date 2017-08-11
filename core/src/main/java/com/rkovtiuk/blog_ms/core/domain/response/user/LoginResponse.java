@@ -1,5 +1,6 @@
 package com.rkovtiuk.blog_ms.core.domain.response.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.rkovtiuk.blog_ms.core.domain.model.SessionTokenDTO;
 import com.rkovtiuk.blog_ms.core.domain.model.UserDTO;
 import com.rkovtiuk.blog_ms.core.domain.response.BaseResponse;
@@ -9,11 +10,21 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class LoginResponse extends BaseResponse {
 
     private String sessionToken;
+    private Integer id;
     private String email;
     private String forename;
     private String surname;
     private String organisation;
     private long points;
+
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getId() {
+        return id;
+    }
 
     public String getEmail() {
         return email;
