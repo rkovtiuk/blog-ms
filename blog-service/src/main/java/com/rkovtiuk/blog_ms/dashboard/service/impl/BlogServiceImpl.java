@@ -1,13 +1,11 @@
 package com.rkovtiuk.blog_ms.dashboard.service.impl;
 
-import com.rkovtiuk.blog_ms.core.domain.model.BlogDTO;
+import com.rkovtiuk.blog_ms.core.domain.models.BlogDTO;
 import com.rkovtiuk.blog_ms.dashboard.domain.mappers.BlogMapper;
 import com.rkovtiuk.blog_ms.dashboard.repository.BlogRepository;
 import com.rkovtiuk.blog_ms.dashboard.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

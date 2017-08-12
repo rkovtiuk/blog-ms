@@ -1,6 +1,6 @@
 package com.rkovtiuk.blog_ms.dashboard.service;
 
-import com.rkovtiuk.blog_ms.core.domain.model.BlogDTO;
+import com.rkovtiuk.blog_ms.core.domain.models.BlogDTO;
 
 import java.util.List;
 

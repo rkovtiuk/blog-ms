@@ -3,7 +3,7 @@ package com.rkovtiuk.blog_ms.auth.controllers;
 import com.rkovtiuk.blog_ms.auth.service.AuthService;
 import com.rkovtiuk.blog_ms.core.domain.requests.auth.CreateTokenRequest;
 import com.rkovtiuk.blog_ms.core.domain.requests.auth.TokenRequest;
-import com.rkovtiuk.blog_ms.core.domain.response.BaseResponse;
+import com.rkovtiuk.blog_ms.core.domain.responses.BaseResponse;
 import com.rkovtiuk.blog_ms.core.exception.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

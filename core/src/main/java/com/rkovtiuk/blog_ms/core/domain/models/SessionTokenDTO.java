@@ -1,4 +1,4 @@
-package com.rkovtiuk.blog_ms.core.domain.model;
+package com.rkovtiuk.blog_ms.core.domain.models;
 
 public class SessionTokenDTO {
 

@@ -1,7 +1,7 @@
 package com.rkovtiuk.blog_ms.dashboard.domain.mappers.impl;
 
-import com.rkovtiuk.blog_ms.core.domain.model.BlogCategoryDTO;
-import com.rkovtiuk.blog_ms.core.domain.model.BlogDTO;
+import com.rkovtiuk.blog_ms.core.domain.models.BlogCategoryDTO;
+import com.rkovtiuk.blog_ms.core.domain.models.BlogDTO;
 import com.rkovtiuk.blog_ms.dashboard.domain.mappers.BlogMapper;
 import com.rkovtiuk.blog_ms.db.domain.entities.Blog;
 import org.springframework.data.domain.Page;

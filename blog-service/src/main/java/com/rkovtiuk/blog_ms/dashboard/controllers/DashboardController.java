@@ -1,6 +1,6 @@
 package com.rkovtiuk.blog_ms.dashboard.controllers;
 
-import com.rkovtiuk.blog_ms.core.domain.model.BlogDTO;
+import com.rkovtiuk.blog_ms.core.domain.models.BlogDTO;
 import com.rkovtiuk.blog_ms.dashboard.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;

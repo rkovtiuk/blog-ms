@@ -1,4 +1,4 @@
-package com.rkovtiuk.blog_ms.core.domain.response;
+package com.rkovtiuk.blog_ms.core.domain.responses;
 
 import java.io.Serializable;
 

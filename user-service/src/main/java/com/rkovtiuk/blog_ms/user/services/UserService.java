@@ -1,8 +1,8 @@
 package com.rkovtiuk.blog_ms.user.services;
 
-import com.rkovtiuk.blog_ms.core.domain.model.UserDTO;
+import com.rkovtiuk.blog_ms.core.domain.models.UserDTO;
 import com.rkovtiuk.blog_ms.core.domain.requests.user.SingUpRequest;
-import com.rkovtiuk.blog_ms.core.domain.response.user.LoginResponse;
+import com.rkovtiuk.blog_ms.core.domain.responses.user.LoginResponse;
 
 import java.util.List;
 

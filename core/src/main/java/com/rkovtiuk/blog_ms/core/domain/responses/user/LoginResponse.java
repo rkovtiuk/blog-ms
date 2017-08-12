@@ -1,9 +1,6 @@
-package com.rkovtiuk.blog_ms.core.domain.response.user;
+package com.rkovtiuk.blog_ms.core.domain.responses.user;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.rkovtiuk.blog_ms.core.domain.model.SessionTokenDTO;
-import com.rkovtiuk.blog_ms.core.domain.model.UserDTO;
-import com.rkovtiuk.blog_ms.core.domain.response.BaseResponse;
+import com.rkovtiuk.blog_ms.core.domain.responses.BaseResponse;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @ResponseBody
