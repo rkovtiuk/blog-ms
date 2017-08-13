@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-import static com.rkovtiuk.blog_ms.core.utils.Path.BlogApi.DASHBOARD;
-import static com.rkovtiuk.blog_ms.core.utils.Path.BlogApi.GET_BLOGS_BY_AUTHOR;
-import static com.rkovtiuk.blog_ms.core.utils.Path.BlogApi.GET_BLOGS_BY_CATEGORY;
+import static com.rkovtiuk.blog_ms.core.utils.Path.BlogApi.*;
 
 @RestController
 public class DashboardController {

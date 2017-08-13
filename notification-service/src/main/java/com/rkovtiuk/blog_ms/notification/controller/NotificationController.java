@@ -1,9 +1,9 @@
 package com.rkovtiuk.blog_ms.notification.controller;
 
-import com.rkovtiuk.blog_ms.core.domain.requests.notifications.NotificationRequest;
-import com.rkovtiuk.blog_ms.notification.services.NotificationService;
 import com.rkovtiuk.blog_ms.core.domain.models.NotificationDTO;
+import com.rkovtiuk.blog_ms.core.domain.requests.notifications.NotificationRequest;
 import com.rkovtiuk.blog_ms.core.exception.NotFoundException;
+import com.rkovtiuk.blog_ms.notification.services.NotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

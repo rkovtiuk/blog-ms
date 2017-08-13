@@ -1,16 +1,15 @@
 package com.rkovtiuk.blog_ms.user.controllers;
 
 import com.rkovtiuk.blog_ms.core.domain.builders.CreateTokenRequestBuilder;
+import com.rkovtiuk.blog_ms.core.domain.models.UserDTO;
 import com.rkovtiuk.blog_ms.core.domain.requests.auth.CreateTokenRequest;
 import com.rkovtiuk.blog_ms.core.domain.requests.user.SignInRequest;
+import com.rkovtiuk.blog_ms.core.domain.requests.user.SingUpRequest;
 import com.rkovtiuk.blog_ms.core.domain.responses.BaseResponse;
 import com.rkovtiuk.blog_ms.core.domain.responses.user.LoginResponse;
 import com.rkovtiuk.blog_ms.core.exception.*;
 import com.rkovtiuk.blog_ms.core.utils.Path;
-import com.rkovtiuk.blog_ms.db.domain.entities.User;
 import com.rkovtiuk.blog_ms.user.services.UserService;
-import com.rkovtiuk.blog_ms.core.domain.models.UserDTO;
-import com.rkovtiuk.blog_ms.core.domain.requests.user.SingUpRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

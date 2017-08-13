@@ -5,8 +5,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.Repository;
 
-import java.util.List;
-
 public interface BlogRepository extends Repository<Blog, Integer>{
 
     Blog findById(Integer id);

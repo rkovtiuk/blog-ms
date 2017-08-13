@@ -1,8 +1,8 @@
 package com.rkovtiuk.blog_ms.notification.domain.mappers.impl;
 
+import com.rkovtiuk.blog_ms.core.domain.models.NotificationDTO;
 import com.rkovtiuk.blog_ms.db.domain.entities.Notification;
 import com.rkovtiuk.blog_ms.notification.domain.mappers.NotificationMapper;
-import com.rkovtiuk.blog_ms.core.domain.models.NotificationDTO;
 import org.springframework.stereotype.Component;
 
 @Component
