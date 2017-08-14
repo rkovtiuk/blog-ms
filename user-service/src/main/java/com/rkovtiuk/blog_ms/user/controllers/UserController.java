@@ -9,6 +9,7 @@ import com.rkovtiuk.blog_ms.core.domain.responses.BaseResponse;
 import com.rkovtiuk.blog_ms.core.domain.responses.user.LoginResponse;
 import com.rkovtiuk.blog_ms.core.exception.*;
 import com.rkovtiuk.blog_ms.core.utils.Path;
+import com.rkovtiuk.blog_ms.db.domain.entities.User;
 import com.rkovtiuk.blog_ms.user.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,8 +17,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import static com.rkovtiuk.blog_ms.core.utils.Path.AuthApi.TOKEN_HEADER_NAME;
 import static com.rkovtiuk.blog_ms.core.utils.Path.UserApi.*;
 import static com.rkovtiuk.blog_ms.core.utils.Validator.isEmpty;
 import static com.rkovtiuk.blog_ms.core.utils.Validator.isValidEmailAddress;
@@ -41,6 +45,14 @@ public class UserController {
     @RequestMapping(value = GET_USER_DETAILS, method = RequestMethod.GET)
     public UserDTO getUser(@RequestParam(value = "id", defaultValue = "1") int id){
         return userService.getUserById(id);
+    }
+
+    @RequestMapping(value = GET_USER_ID_BY_TOKEN, method = RequestMethod.GET)
+    public Integer getUserId(@RequestHeader(value = TOKEN_HEADER_NAME) String token) throws EmptyRequestException {
+        if (token==null) throw new EmptyRequestException();
+        Map<String, String> headers = new HashMap<>();
+        headers.put(TOKEN_HEADER_NAME, token);
+        return new RestTemplate().postForObject(Path.AuthApi.CREATE_TOKEN, null, Integer.class, headers);
     }
 
     @RequestMapping(value = GET_USERS, method = RequestMethod.GET)
