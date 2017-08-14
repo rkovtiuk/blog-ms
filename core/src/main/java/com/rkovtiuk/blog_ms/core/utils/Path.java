@@ -2,10 +2,10 @@ package com.rkovtiuk.blog_ms.core.utils;
 
 public final class Path {
     private static final String DOMAIN = "http://localhost/";
-    private static final String AUTH_API = DOMAIN + "8888";
-    private static final String USER_API = DOMAIN + "9001";
-    private static final String NOTIFICATION_API = DOMAIN+"9002";
-    private static final String BLOG_API = DOMAIN+"9003";
+    public static final String AUTH_API = DOMAIN + "8888";
+    public static final String USER_API = DOMAIN + "9001";
+    public static final String NOTIFICATION_API = DOMAIN+"9002";
+    public static final String BLOG_API = DOMAIN+"9003";
 
 
     public final class AuthApi {

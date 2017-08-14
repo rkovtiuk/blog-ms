@@ -29,9 +29,9 @@ public class AuthController {
     }
 
     @RequestMapping(value = USER_ID_BY_TOKEN, method = RequestMethod.POST)
-    public @ResponseBody Integer getUserId(@RequestBody TokenRequest request) throws EmptyRequestException {
-        if (isNotValidTokenRequest(request)) throw new EmptyRequestException();
-        return authService.getUserIdByToken(request.getToken());
+    public @ResponseBody Integer getUserId(@RequestHeader(name = TOKEN_HEADER_NAME) String token) throws EmptyRequestException {
+        if (isEmpty(token)) throw new EmptyRequestException();
+        return authService.getUserIdByToken(token);
     }
 
     @RequestMapping(value = ACTIVE_TOKEN, method = RequestMethod.POST)
@@ -60,7 +60,7 @@ public class AuthController {
             return new ResponseEntity<>(new BaseResponse(e.getMessage()), HttpStatus.BAD_REQUEST);
         if (e instanceof EmailNotValidException)
             return new ResponseEntity<>(new BaseResponse(e.getMessage()), HttpStatus.BAD_REQUEST);
-        if (e instanceof PasswordDontMatch)
+        if (e instanceof PasswordDontMatchException)
             return new ResponseEntity<>(new BaseResponse(e.getMessage()), HttpStatus.BAD_REQUEST);
         return new ResponseEntity<>(new BaseResponse("Unexpected exception"), HttpStatus.INTERNAL_SERVER_ERROR);
     }

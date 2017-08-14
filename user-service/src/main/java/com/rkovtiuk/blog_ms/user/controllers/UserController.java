@@ -9,7 +9,6 @@ import com.rkovtiuk.blog_ms.core.domain.responses.BaseResponse;
 import com.rkovtiuk.blog_ms.core.domain.responses.user.LoginResponse;
 import com.rkovtiuk.blog_ms.core.exception.*;
 import com.rkovtiuk.blog_ms.core.utils.Path;
-import com.rkovtiuk.blog_ms.db.domain.entities.User;
 import com.rkovtiuk.blog_ms.user.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,10 +16,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
+import static com.rkovtiuk.blog_ms.core.utils.NetworkUtils.createTokenHeader;
 import static com.rkovtiuk.blog_ms.core.utils.Path.AuthApi.TOKEN_HEADER_NAME;
 import static com.rkovtiuk.blog_ms.core.utils.Path.UserApi.*;
 import static com.rkovtiuk.blog_ms.core.utils.Validator.isEmpty;
@@ -50,9 +48,7 @@ public class UserController {
     @RequestMapping(value = GET_USER_ID_BY_TOKEN, method = RequestMethod.GET)
     public Integer getUserId(@RequestHeader(value = TOKEN_HEADER_NAME) String token) throws EmptyRequestException {
         if (token==null) throw new EmptyRequestException();
-        Map<String, String> headers = new HashMap<>();
-        headers.put(TOKEN_HEADER_NAME, token);
-        return new RestTemplate().postForObject(Path.AuthApi.CREATE_TOKEN, null, Integer.class, headers);
+        return new RestTemplate().postForObject(Path.AuthApi.CREATE_TOKEN, null, Integer.class, createTokenHeader(token));
     }
 
     @RequestMapping(value = GET_USERS, method = RequestMethod.GET)
@@ -62,10 +58,10 @@ public class UserController {
 
     @RequestMapping(value = SIGN_UP, method = RequestMethod.POST)
     @ResponseBody
-    public LoginResponse createUser(@RequestBody SingUpRequest request) throws EmptyRequestException, EmailNotValidException, PasswordDontMatch {
+    public LoginResponse createUser(@RequestBody SingUpRequest request) throws EmptyRequestException, EmailNotValidException, PasswordDontMatchException {
         if (request==null || isEmpty(request.getEmail()) || isEmpty(request.getForename()) || isEmpty(request.getSurname()) || isEmpty(request.getPassword()) || isEmpty(request.getConfirmPassword())) throw new EmptyRequestException();
         if (isValidEmailAddress(request.getEmail())) throw new EmailNotValidException();
-        if (request.getPassword().equals(request.getConfirmPassword())) throw  new PasswordDontMatch();
+        if (request.getPassword().equals(request.getConfirmPassword())) throw  new PasswordDontMatchException();
 
         LoginResponse user = userService.createUser(request);
         user.setSessionToken(getSessionToken(user.getId()));
@@ -94,7 +90,7 @@ public class UserController {
             return new ResponseEntity<>(new BaseResponse(e.getMessage()), HttpStatus.BAD_REQUEST);
         if (e instanceof EmailNotValidException)
             return new ResponseEntity<>(new BaseResponse(e.getMessage()), HttpStatus.BAD_REQUEST);
-        if (e instanceof PasswordDontMatch)
+        if (e instanceof PasswordDontMatchException)
             return new ResponseEntity<>(new BaseResponse(e.getMessage()), HttpStatus.BAD_REQUEST);
         return new ResponseEntity<>(new BaseResponse("Unexpected exception"), HttpStatus.INTERNAL_SERVER_ERROR);
     }

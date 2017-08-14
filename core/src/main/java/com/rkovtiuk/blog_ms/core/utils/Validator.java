@@ -2,8 +2,10 @@ package com.rkovtiuk.blog_ms.core.utils;
 
 public class Validator {
 
-    static public boolean isEmpty(String str) {
-        return str == null || "".equals(str);
+    static public boolean isEmpty(Object obj) {
+        if (obj == null) return true;
+        if (obj instanceof String) return "".equals((String) obj);
+        return !(obj instanceof Integer) || ((Integer) obj) == 0;
     }
 
     public static boolean isValidEmailAddress(String email) {
