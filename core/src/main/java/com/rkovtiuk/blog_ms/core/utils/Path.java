@@ -23,6 +23,7 @@ public final class Path {
         public static final String USER_PATH = "/user";
         public static final String GET_USERS = "/users";
         public static final String GET_USER_DETAILS = USER_PATH;
+        public static final String GET_USER_ID_BY_TOKEN = GET_USER_DETAILS + "/id";
     }
 
     public final class NotificationApi {
@@ -31,7 +32,10 @@ public final class Path {
 
     public final class BlogApi {
         public static final String DASHBOARD = "/dashboard";
-        public static final String GET_BLOGS_BY_AUTHOR = "/blogs/author/{id}";
+        public static final String GET_BLOGS_BY_AUTHOR = "/author/{id}/blogs";
         public static final String GET_BLOGS_BY_CATEGORY = "/blogs";
+        public static final String REMOVE_BLOG = "/blogs/{id}/remove/";
+        public static final String GET_BLOG_COMMENTS = "blogs/{id}/comments";
+        public static final String CREATE_COMMENT = "blogs/{id}/comments";
     }
 }
