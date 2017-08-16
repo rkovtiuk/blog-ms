@@ -10,6 +10,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.EmptyStackException;
+import java.util.Optional;
+
 import static com.rkovtiuk.blog_ms.core.utils.Path.AuthApi.*;
 import static com.rkovtiuk.blog_ms.core.utils.Validator.isEmpty;
 
@@ -29,15 +32,15 @@ public class AuthController {
     }
 
     @RequestMapping(value = USER_ID_BY_TOKEN, method = RequestMethod.POST)
-    public @ResponseBody Integer getUserId(@RequestHeader(name = TOKEN_HEADER_NAME) String token) throws EmptyRequestException {
+    public @ResponseBody Integer getUserId(@RequestHeader(name = TOKEN_HEADER_NAME) String token) throws EmptyRequestException, NotFoundException {
         if (isEmpty(token)) throw new EmptyRequestException();
-        return authService.getUserIdByToken(token);
+        return Optional.of(authService.getUserIdByToken(token)).orElseThrow(NotFoundException::new);
     }
 
     @RequestMapping(value = ACTIVE_TOKEN, method = RequestMethod.POST)
-    public @ResponseBody Boolean isActiveToken(@RequestBody TokenRequest request) throws EmptyRequestException {
+    public @ResponseBody Boolean isActiveToken(@RequestBody TokenRequest request) throws EmptyRequestException, NotFoundException {
         if (isNotValidTokenRequest(request)) throw new EmptyRequestException();
-        return authService.isActiveSession(request.getToken());
+        return Optional.of(authService.isActiveSession(request.getToken())).orElseThrow(NotFoundException::new);
     }
 
     @RequestMapping(value = REMOVE_TOKEN, method = RequestMethod.DELETE)
