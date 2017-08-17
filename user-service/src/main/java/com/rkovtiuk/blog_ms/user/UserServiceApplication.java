@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @EnableAutoConfiguration
-@ComponentScan(basePackages = {"com.rkovtiuk.blog_ms.db", "com.rkovtiuk.blog_ms.user"})
+@ComponentScan(basePackages = {"com.rkovtiuk.blog_ms.core", "com.rkovtiuk.blog_ms.user"})
 @SpringBootApplication
 public class UserServiceApplication {
     public static void main(String[] args) {

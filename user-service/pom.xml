@@ -79,12 +79,7 @@
         </dependency>
         <dependency>
             <groupId>com.rkovtiuk.blog_ms</groupId>
-            <artifactId>core</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.rkovtiuk.blog_ms</groupId>
-            <artifactId>db-setup</artifactId>
+            <artifactId>core-service</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>

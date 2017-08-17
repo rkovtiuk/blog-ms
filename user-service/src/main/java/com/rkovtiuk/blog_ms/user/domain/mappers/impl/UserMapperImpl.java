@@ -3,7 +3,7 @@ package com.rkovtiuk.blog_ms.user.domain.mappers.impl;
 import com.rkovtiuk.blog_ms.core.domain.models.UserDTO;
 import com.rkovtiuk.blog_ms.core.domain.requests.user.SingUpRequest;
 import com.rkovtiuk.blog_ms.core.domain.responses.user.LoginResponse;
-import com.rkovtiuk.blog_ms.db.domain.entities.User;
+import com.rkovtiuk.blog_ms.core.domain.entities.User;
 import com.rkovtiuk.blog_ms.user.domain.mappers.UserMapper;
 import org.springframework.stereotype.Component;
 

@@ -11,7 +11,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
-@ComponentScan({"com.rkovtiuk.blog_ms.db", "com.rkovtiuk.blog_ms.notification"})
+@ComponentScan({"com.rkovtiuk.blog_ms.core", "com.rkovtiuk.blog_ms.notification"})
 @EnableSwagger2
 @EnableAutoConfiguration
 public class SwaggerConfiguration {

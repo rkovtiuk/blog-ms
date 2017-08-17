@@ -1,6 +1,6 @@
 package com.rkovtiuk.blog_ms.auth.repository;
 
-import com.rkovtiuk.blog_ms.db.domain.entities.Token;
+import com.rkovtiuk.blog_ms.core.domain.entities.Token;
 import org.springframework.data.repository.CrudRepository;
 
 public interface AuthRepository extends CrudRepository<Token, Integer> {

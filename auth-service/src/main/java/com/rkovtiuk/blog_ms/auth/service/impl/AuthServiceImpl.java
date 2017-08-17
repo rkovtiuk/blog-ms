@@ -6,7 +6,7 @@ import com.rkovtiuk.blog_ms.auth.service.AuthService;
 import com.rkovtiuk.blog_ms.core.domain.requests.auth.CreateTokenRequest;
 import com.rkovtiuk.blog_ms.core.utils.Constants;
 import com.rkovtiuk.blog_ms.core.utils.Validator;
-import com.rkovtiuk.blog_ms.db.domain.entities.Token;
+import com.rkovtiuk.blog_ms.core.domain.entities.Token;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

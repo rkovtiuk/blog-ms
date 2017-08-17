@@ -1,6 +1,6 @@
 package com.rkovtiuk.blog_ms.notification.repository;
 
-import com.rkovtiuk.blog_ms.db.domain.entities.Notification;
+import com.rkovtiuk.blog_ms.core.domain.entities.Notification;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
 

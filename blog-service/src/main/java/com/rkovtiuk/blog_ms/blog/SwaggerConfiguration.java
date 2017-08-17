@@ -1,4 +1,4 @@
-package com.rkovtiuk.blog_ms.user;
+package com.rkovtiuk.blog_ms.blog;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
@@ -11,7 +11,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
-@ComponentScan({"com.rkovtiuk.blog_ms.core", "com.rkovtiuk.blog_ms.user"})
+@ComponentScan({"com.rkovtiuk.blog_ms.core", "com.rkovtiuk.blog_ms.blog"})
 @EnableSwagger2
 @EnableAutoConfiguration
 public class SwaggerConfiguration {
@@ -20,11 +20,10 @@ public class SwaggerConfiguration {
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.rkovtiuk.blog_ms.user.controllers"))
+                .apis(RequestHandlerSelectors.basePackage("com.rkovtiuk.blog_ms.dashboard.controllers"))
                 .paths(PathSelectors.any())
                 .build();
     }
 
 
 }
-

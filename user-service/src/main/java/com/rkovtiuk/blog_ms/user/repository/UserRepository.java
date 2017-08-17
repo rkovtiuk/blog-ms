@@ -1,6 +1,6 @@
 package com.rkovtiuk.blog_ms.user.repository;
 
-import com.rkovtiuk.blog_ms.db.domain.entities.User;
+import com.rkovtiuk.blog_ms.core.domain.entities.User;
 import org.springframework.data.repository.Repository;
 
 import java.util.List;

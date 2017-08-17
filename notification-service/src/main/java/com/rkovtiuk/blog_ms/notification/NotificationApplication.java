@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
-@ComponentScan({"com.rkovtiuk.blog_ms.db", "com.rkovtiuk.blog_ms.notification"})
+@ComponentScan({"com.rkovtiuk.blog_ms.core", "com.rkovtiuk.blog_ms.notification"})
 @EnableAutoConfiguration
 @SpringBootApplication
 public class NotificationApplication {
