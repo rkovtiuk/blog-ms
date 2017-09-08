@@ -44,15 +44,10 @@
             <version>2.5.0</version>
         </dependency>
 
-        <!-- Databases - Uses HSQL by default -->
-        <!--<dependency>-->
-        <!--<groupId>org.hsqldb</groupId>-->
-        <!--<artifactId>hsqldb</artifactId>-->
-        <!--<scope>runtime</scope>-->
-        <!--</dependency>-->
+        <!-- Add freemarker template support -->
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-freemarker</artifactId>
         </dependency>
 
         <dependency>
@@ -66,16 +61,6 @@
             <version>2.6.1</version>
         </dependency>
 
-        <!-- caching -->
-        <dependency>
-            <groupId>javax.cache</groupId>
-            <artifactId>cache-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.ehcache</groupId>
-            <artifactId>ehcache</artifactId>
-            <version>RELEASE</version>
-        </dependency>
         <dependency>
             <groupId>com.rkovtiuk.blog_ms</groupId>
             <artifactId>core-service</artifactId>
