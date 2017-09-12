@@ -15,6 +15,7 @@
         <module>user-service</module>
         <module>auth-service</module>
         <module>webui-service</module>
+        <module>statistics-service</module>
     </modules>
 
     <properties>
