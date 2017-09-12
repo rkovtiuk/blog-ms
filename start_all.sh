@@ -23,3 +23,7 @@ cd ..
 cd notification-service/
 mvn spring-boot:run
 cd ..
+
+cd webui-service/
+mvn spring-boot:run
+cd ..
