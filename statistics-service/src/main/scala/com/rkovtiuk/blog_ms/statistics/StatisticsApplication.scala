@@ -8,5 +8,10 @@ import org.springframework.context.annotation.ComponentScan
 @EnableAutoConfiguration
 @SpringBootApplication
 class StatisticsApplication extends App{
-  SpringApplication.run(classOf[StatisticsApplication])
+}
+
+object StartStatisticsApplication {
+  def main(args: Array[String]): Unit = {
+    SpringApplication.run(classOf[StatisticsApplication])
+  }
 }
