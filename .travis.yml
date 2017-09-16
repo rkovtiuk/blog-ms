@@ -1,7 +1,6 @@
 sudo: required
-language: java
+language: scala
 jdk:
   - oraclejdk8
-before_install:
-- sudo apt-get update
-- sudo apt-get install scala
+scala:
+   - 2.12.3
