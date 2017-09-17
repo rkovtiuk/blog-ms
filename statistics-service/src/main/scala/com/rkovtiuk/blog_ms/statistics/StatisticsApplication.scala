@@ -10,8 +10,6 @@ import org.springframework.context.annotation.ComponentScan
 class StatisticsApplication extends App{
 }
 
-object StartStatisticsApplication {
-  def main(args: Array[String]): Unit = {
+object StatisticsApplication extends App{
     SpringApplication.run(classOf[StatisticsApplication])
-  }
 }
