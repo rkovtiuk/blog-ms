@@ -5,13 +5,14 @@ import com.rkovtiuk.blog_ms.core.domain.requests.user.SingUpRequest;
 import com.rkovtiuk.blog_ms.core.domain.responses.user.LoginResponse;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface UserService {
     UserDTO getUserById(Integer id);
 
     List<UserDTO> getUsers();
 
-    LoginResponse createUser(SingUpRequest user);
+    Optional<LoginResponse> createUser(SingUpRequest user);
 
-    LoginResponse getLoginUser(String email, String password);
+    Optional<LoginResponse> getLoginUser(String email, String password);
 }

@@ -1,11 +1,13 @@
 package com.rkovtiuk.blog_ms.user.domain.mappers.impl;
 
+import com.rkovtiuk.blog_ms.core.domain.entities.User;
 import com.rkovtiuk.blog_ms.core.domain.models.UserDTO;
 import com.rkovtiuk.blog_ms.core.domain.requests.user.SingUpRequest;
 import com.rkovtiuk.blog_ms.core.domain.responses.user.LoginResponse;
-import com.rkovtiuk.blog_ms.core.domain.entities.User;
 import com.rkovtiuk.blog_ms.user.domain.mappers.UserMapper;
 import org.springframework.stereotype.Component;
+
+import java.util.Optional;
 
 @Component
 public class UserMapperImpl implements UserMapper {
@@ -50,7 +52,7 @@ public class UserMapperImpl implements UserMapper {
     }
 
     @Override
-    public LoginResponse mapToLoginResponse(User user) {
+    public Optional<LoginResponse> mapToLoginResponse(User user) {
         LoginResponse response = new LoginResponse();
         response.setId(user.getId());
         response.setEmail(user.getEmail());
@@ -58,6 +60,6 @@ public class UserMapperImpl implements UserMapper {
         response.setSurname(user.getSurname());
         response.setOrganisation(user.getOrganisation());
         response.setPoints(user.getPoints());
-        return response;
+        return Optional.ofNullable(response);
     }
 }
