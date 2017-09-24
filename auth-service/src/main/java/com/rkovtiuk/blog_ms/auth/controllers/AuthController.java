@@ -4,9 +4,10 @@ import com.rkovtiuk.blog_ms.auth.service.AuthService;
 import com.rkovtiuk.blog_ms.core.domain.requests.auth.CreateTokenRequest;
 import com.rkovtiuk.blog_ms.core.domain.requests.auth.TokenRequest;
 import com.rkovtiuk.blog_ms.core.domain.responses.BaseResponse;
-import com.rkovtiuk.blog_ms.core.exception.*;
+import com.rkovtiuk.blog_ms.core.exception.EmptyRequestException;
+import com.rkovtiuk.blog_ms.core.exception.NotFoundException;
+import com.rkovtiuk.blog_ms.core.utils.ExceptUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +15,7 @@ import java.util.Optional;
 
 import static com.rkovtiuk.blog_ms.core.utils.Path.AuthApi.*;
 import static com.rkovtiuk.blog_ms.core.utils.Validator.isEmpty;
+import static com.rkovtiuk.blog_ms.core.utils.Validator.isObjectEmpty;
 
 @RestController
 public class AuthController {
@@ -38,33 +40,19 @@ public class AuthController {
 
     @RequestMapping(value = ACTIVE_TOKEN, method = RequestMethod.POST)
     public @ResponseBody Boolean isActiveToken(@RequestBody TokenRequest request) throws EmptyRequestException, NotFoundException {
-        if (isNotValidTokenRequest(request)) throw new EmptyRequestException();
+        if (isObjectEmpty(request)) throw new EmptyRequestException();
         return Optional.of(authService.isActiveSession(request.getToken())).orElseThrow(NotFoundException::new);
     }
 
     @RequestMapping(value = REMOVE_TOKEN, method = RequestMethod.DELETE)
     public void removeToken(@RequestBody TokenRequest request) throws EmptyRequestException {
-        if (isNotValidTokenRequest(request)) throw new EmptyRequestException();
+        if (isObjectEmpty(request)) throw new EmptyRequestException();
         authService.removeToken(request.getToken());
-    }
-
-    private boolean isNotValidTokenRequest(final TokenRequest request){
-        return request==null || isEmpty(request.getToken());
     }
 
     @ExceptionHandler
     public ResponseEntity<BaseResponse> dummyExceptionHandler(Exception e) {
-        if (e instanceof NotFoundException)
-            return new ResponseEntity<>(new BaseResponse(e.getMessage()), HttpStatus.NOT_FOUND);
-        if (e instanceof WrongPassOrEmailException)
-            return new ResponseEntity<>(new BaseResponse(e.getMessage()), HttpStatus.BAD_REQUEST);
-        if (e instanceof EmptyRequestException)
-            return new ResponseEntity<>(new BaseResponse(e.getMessage()), HttpStatus.BAD_REQUEST);
-        if (e instanceof EmailNotValidException)
-            return new ResponseEntity<>(new BaseResponse(e.getMessage()), HttpStatus.BAD_REQUEST);
-        if (e instanceof PasswordDontMatchException)
-            return new ResponseEntity<>(new BaseResponse(e.getMessage()), HttpStatus.BAD_REQUEST);
-        return new ResponseEntity<>(new BaseResponse("Unexpected exception"), HttpStatus.INTERNAL_SERVER_ERROR);
+        return ExceptUtils.responseData(e);
     }
 
 }
