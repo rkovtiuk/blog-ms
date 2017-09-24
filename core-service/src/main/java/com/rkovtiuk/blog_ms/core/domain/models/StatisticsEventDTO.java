@@ -1,5 +1,7 @@
 package com.rkovtiuk.blog_ms.core.domain.models;
 
+import com.rkovtiuk.blog_ms.core.domain.enums.EventType;
+
 public class StatisticsEventDTO {
 
     private String userId;
@@ -31,11 +33,11 @@ public class StatisticsEventDTO {
         this.commentId = commentId;
     }
 
-    public String getEventType() {
-        return eventType;
+    public EventType getEventType() {
+        return EventType.valueOf(eventType);
     }
 
-    public void setEventType(String eventType) {
-        this.eventType = eventType;
+    public void setEventType(EventType eventType) {
+        this.eventType = eventType.toString();
     }
 }

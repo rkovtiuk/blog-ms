@@ -1,7 +1,7 @@
 package com.rkovtiuk.blog_ms.core.domain.builders;
 
-import com.rkovtiuk.blog_ms.core.domain.requests.auth.CreateTokenRequest;
 import com.rkovtiuk.blog_ms.core.domain.entities.User;
+import com.rkovtiuk.blog_ms.core.domain.requests.auth.CreateTokenRequest;
 
 public class CreateTokenRequestBuilder {
 

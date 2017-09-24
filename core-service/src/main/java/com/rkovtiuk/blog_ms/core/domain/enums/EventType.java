@@ -13,7 +13,7 @@ public enum EventType {
 
     String textType = "";
 
-    private EventType(final String textType) {
+    EventType(final String textType) {
         this.textType = textType;
     }
 
