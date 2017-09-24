@@ -1,9 +1,9 @@
 package com.rkovtiuk.blog_ms.blog.domain.mappers.impl;
 
-import com.rkovtiuk.blog_ms.core.domain.requests.blog.CreateCommentRequest;
 import com.rkovtiuk.blog_ms.blog.domain.mappers.CommentMapper;
 import com.rkovtiuk.blog_ms.core.domain.entities.Comment;
 import com.rkovtiuk.blog_ms.core.domain.entities.User;
+import com.rkovtiuk.blog_ms.core.domain.requests.blog.CreateCommentRequest;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;

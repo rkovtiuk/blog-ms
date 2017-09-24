@@ -1,9 +1,9 @@
 package com.rkovtiuk.blog_ms.blog.domain.mappers.impl;
 
-import com.rkovtiuk.blog_ms.core.domain.models.BlogCategoryDTO;
-import com.rkovtiuk.blog_ms.core.domain.models.BlogDTO;
 import com.rkovtiuk.blog_ms.blog.domain.mappers.BlogMapper;
 import com.rkovtiuk.blog_ms.core.domain.entities.Blog;
+import com.rkovtiuk.blog_ms.core.domain.models.BlogCategoryDTO;
+import com.rkovtiuk.blog_ms.core.domain.models.BlogDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 

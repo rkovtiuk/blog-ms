@@ -1,11 +1,13 @@
 package com.rkovtiuk.blog_ms.blog.controllers;
 
+import com.rkovtiuk.blog_ms.blog.service.BlogService;
+import com.rkovtiuk.blog_ms.core.domain.entities.Comment;
 import com.rkovtiuk.blog_ms.core.domain.models.BlogDTO;
 import com.rkovtiuk.blog_ms.core.domain.requests.blog.CreateCommentRequest;
 import com.rkovtiuk.blog_ms.core.domain.responses.BaseResponse;
-import com.rkovtiuk.blog_ms.core.exception.*;
-import com.rkovtiuk.blog_ms.blog.service.BlogService;
-import com.rkovtiuk.blog_ms.core.domain.entities.Comment;
+import com.rkovtiuk.blog_ms.core.exception.AuthorizedException;
+import com.rkovtiuk.blog_ms.core.exception.EmptyRequestException;
+import com.rkovtiuk.blog_ms.core.utils.ExceptUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -83,18 +85,6 @@ public class BlogController {
 
     @ExceptionHandler
     public ResponseEntity<BaseResponse> dummyExceptionHandler(Exception e) {
-        if (e instanceof NotFoundException)
-            return new ResponseEntity<>(new BaseResponse(e.getMessage()), HttpStatus.NOT_FOUND);
-        if (e instanceof WrongPassOrEmailException)
-            return new ResponseEntity<>(new BaseResponse(e.getMessage()), HttpStatus.BAD_REQUEST);
-        if (e instanceof EmptyRequestException)
-            return new ResponseEntity<>(new BaseResponse(e.getMessage()), HttpStatus.BAD_REQUEST);
-        if (e instanceof EmailNotValidException)
-            return new ResponseEntity<>(new BaseResponse(e.getMessage()), HttpStatus.BAD_REQUEST);
-        if (e instanceof PasswordDontMatchException)
-            return new ResponseEntity<>(new BaseResponse(e.getMessage()), HttpStatus.BAD_REQUEST);
-        if (e instanceof AuthorizedException)
-            return new ResponseEntity<>(new BaseResponse(e.getMessage()), HttpStatus.UNAUTHORIZED);
-        return new ResponseEntity<>(new BaseResponse("Unexpected exception"), HttpStatus.INTERNAL_SERVER_ERROR);
+        return ExceptUtils.responseData(e);
     }
 }

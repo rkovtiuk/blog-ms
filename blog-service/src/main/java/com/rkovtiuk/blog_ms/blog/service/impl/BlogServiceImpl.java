@@ -1,7 +1,5 @@
 package com.rkovtiuk.blog_ms.blog.service.impl;
 
-import com.rkovtiuk.blog_ms.core.domain.models.BlogDTO;
-import com.rkovtiuk.blog_ms.core.domain.requests.blog.CreateCommentRequest;
 import com.rkovtiuk.blog_ms.blog.domain.mappers.BlogMapper;
 import com.rkovtiuk.blog_ms.blog.domain.mappers.CommentMapper;
 import com.rkovtiuk.blog_ms.blog.repository.BlogRepository;
@@ -9,6 +7,8 @@ import com.rkovtiuk.blog_ms.blog.repository.CommentRepository;
 import com.rkovtiuk.blog_ms.blog.service.BlogService;
 import com.rkovtiuk.blog_ms.core.domain.entities.Blog;
 import com.rkovtiuk.blog_ms.core.domain.entities.Comment;
+import com.rkovtiuk.blog_ms.core.domain.models.BlogDTO;
+import com.rkovtiuk.blog_ms.core.domain.requests.blog.CreateCommentRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;

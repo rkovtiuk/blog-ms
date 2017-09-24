@@ -1,8 +1,8 @@
 package com.rkovtiuk.blog_ms.blog.service;
 
+import com.rkovtiuk.blog_ms.core.domain.entities.Comment;
 import com.rkovtiuk.blog_ms.core.domain.models.BlogDTO;
 import com.rkovtiuk.blog_ms.core.domain.requests.blog.CreateCommentRequest;
-import com.rkovtiuk.blog_ms.core.domain.entities.Comment;
 
 import java.util.List;
 
