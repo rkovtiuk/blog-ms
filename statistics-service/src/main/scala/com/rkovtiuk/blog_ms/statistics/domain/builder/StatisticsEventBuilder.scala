@@ -6,9 +6,9 @@ import org.springframework.stereotype.Component
 @Component
 class StatisticsEventBuilder(val entity: StatisticsEvent) {
 
-  var userId: Int = 0
-  var commentId: Int = 0
-  var blogId: Int = 0
+  var userId: Int = _
+  var commentId: Int = _
+  var blogId: Int = _
   var eventType: String = ""
 
   def this() = this(new StatisticsEvent)
@@ -22,19 +22,26 @@ class StatisticsEventBuilder(val entity: StatisticsEvent) {
   }
 
   def setUser(id: Option[Int]): StatisticsEventBuilder = {
-    userId = id.orNull; this
+    if (id.nonEmpty)
+      userId = id.get
+    this
   }
 
   def setComment(id: Option[Int]): StatisticsEventBuilder = {
-    commentId = id.orNull; this
+    if (id.nonEmpty)
+      commentId = id.get
+    this
   }
 
   def setBlog(id: Option[Int]): StatisticsEventBuilder = {
-    blogId = id.orNull; this
+    if (id.nonEmpty)
+      blogId = id.get
+    this
   }
 
   def setEventType(event: String): StatisticsEventBuilder = {
-    eventType = event; this
+    eventType = event
+    this
   }
 
 }

@@ -7,17 +7,19 @@ import javax.persistence._
 @Table(name = "statistics")
 class StatisticsEvent{
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  var user: Long = null
+  @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+  var id: Long = _
+
+  @Column(name = "user")
+  var user: Long = _
 
   @Column(name = "blog")
-  var blog: Long = null
+  var blog: Long = _
 
   @Column(name = "comment")
-  var comment: Long = null
+  var comment: Long = _
 
   @Column(name = "type")
-  var event: String = ""
+  var event: String = _
 
 }
