@@ -6,7 +6,7 @@ import springfox.documentation.spi.DocumentationType
 import springfox.documentation.spring.web.plugins.Docket
 
 @Configuration
-@ComponentScan(Array("com.rkovtiuk.blog_ms.core", "com.rkovtiuk.blog_ms.statistics"))
+@ComponentScan(Array("com.rkovtiuk.blog_ms.statistics"))
 class SwaggerConfiguration {
 
   @Bean
