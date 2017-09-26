@@ -19,7 +19,7 @@ class StatisticsServiceImpl(@Autowired val repo: StatisticsRepository,
                             @Autowired val mapper: StatisticsEventMapper)
                             extends StatisticsService{
 
-  override def track(dto: StatisticsEventRequest): StatisticsEvent =
+  override def track(dto: StatisticsEventRequest) =
     repo.save[StatisticsEvent](mapper.mapToEntity(dto))
 
   override def getUserEvents(id: Long, eventType: String) = {

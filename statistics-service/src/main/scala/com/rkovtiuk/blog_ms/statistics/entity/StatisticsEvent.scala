@@ -5,10 +5,10 @@ import javax.persistence._
 
 @Entity
 @Table(name = "statistics")
-class StatisticsEvent{
+class StatisticsEvent extends Serializable{
 
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-  var id: Long = _
+  var id: java.lang.Long = _
 
   @Column(name = "user")
   var user: Long = _
