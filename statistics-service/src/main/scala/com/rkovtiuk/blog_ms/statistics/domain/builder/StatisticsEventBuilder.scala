@@ -21,16 +21,16 @@ class StatisticsEventBuilder(val entity: StatisticsEvent) {
     entity
   }
 
-  def setUser(id: Int): StatisticsEventBuilder = {
-    userId = id; this
+  def setUser(id: Option[Int]): StatisticsEventBuilder = {
+    userId = id.orNull; this
   }
 
-  def setComment(id: Int): StatisticsEventBuilder = {
-    commentId = id; this
+  def setComment(id: Option[Int]): StatisticsEventBuilder = {
+    commentId = id.orNull; this
   }
 
-  def setBlog(id: Int): StatisticsEventBuilder = {
-    blogId = id; this
+  def setBlog(id: Option[Int]): StatisticsEventBuilder = {
+    blogId = id.orNull; this
   }
 
   def setEventType(event: String): StatisticsEventBuilder = {
