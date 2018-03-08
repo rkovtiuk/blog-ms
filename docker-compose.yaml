@@ -12,6 +12,12 @@ services:
     ports:
       - "8888:8888"
 
+  userservice:
+    image: "user-service:1.0-SNAPSHOT"
+    hostname: userservice
+    ports:
+      - "9001:9001"
+
   notificationservice:
     image: "notification-service:1.0-SNAPSHOT"
     hostname: notificationservice
