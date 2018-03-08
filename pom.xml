@@ -13,7 +13,7 @@
         <module>core-service</module>
         <module>auth-service</module>
         <module>blog-service</module>
-        <!--<module>notification-service</module>-->
+        <module>notification-service</module>
         <!--<module>user-service</module>-->
         <!--<module>webui-service</module>-->
         <!--<module>statistics-service</module>-->
