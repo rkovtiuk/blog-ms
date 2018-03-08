@@ -13,9 +13,20 @@ services:
       - authservice
     environment:
       EUREKA_HOST: authservice
-      EUREKA_PORT: 8761
+      EUREKA_PORT: 8888
     ports:
       - "8888:8888"
+
+  blogservice:
+    image: "blog-service:1.0-SNAPSHOT"
+    hostname: blogservice
+    links:
+      - blogservice
+    environment:
+      EUREKA_HOST: blogservice
+      EUREKA_PORT: 9003
+    ports:
+      - "9003:9003"
 #
 #  samplepong:
 #    image: sample-pong:1.1.0-SNAPSHOT

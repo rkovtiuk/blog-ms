@@ -12,8 +12,8 @@
     <modules>
         <module>core-service</module>
         <module>auth-service</module>
+        <module>blog-service</module>
         <!--<module>notification-service</module>-->
-        <!--<module>blog-service</module>-->
         <!--<module>user-service</module>-->
         <!--<module>webui-service</module>-->
         <!--<module>statistics-service</module>-->
@@ -80,20 +80,6 @@
         </pluginManagement>
     </build>
 
-    <repositories>
-        <repository>
-            <id>spring-release</id>
-            <url>http://repo.spring.io/release/</url>
-        </repository>
-        <repository>
-            <id>spring-milestones</id>
-            <name>Spring Milestones</name>
-            <url>http://repo.spring.io/milestone</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
     <pluginRepositories>
         <pluginRepository>
             <id>spring-release</id>
