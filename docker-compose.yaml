@@ -29,3 +29,9 @@ services:
     hostname: blogservice
     ports:
       - "9003:9003"
+
+  webuiservice:
+    image: "webui-service:1.0-SNAPSHOT"
+    hostname: webuiservice
+    ports:
+      - "9004:9004"
