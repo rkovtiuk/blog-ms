@@ -1,7 +1,7 @@
 FROM java:8
 VOLUME /tmp
 RUN mkdir /app
-ADD auth-service-1.0-SNAPSHOT.jar /app/app.jar
+ADD user-service-1.0-SNAPSHOT.jar /app/app.jar
 ADD runboot.sh /app/
 RUN bash -c 'touch /app/app.jar'
 WORKDIR /app

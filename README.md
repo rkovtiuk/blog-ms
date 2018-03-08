@@ -5,7 +5,7 @@
 ### Description
 
 There is a sample application
-[here](https://github.com/rkovtiuk/BlogMS/). It
+[here](https://github.com/rkovtiuk/blog-ms/). It
 is a Spring Boot application so you can run it using the usual
 mechanisms (for instance "mvn spring-boot:run"). When it runs it will
 look for the config server on http://localhost:8888 by default, so
@@ -26,18 +26,32 @@ directory of the git repository, so you can make local changes there
 and see them reflected in the running app.
 
 
-### Quick Start
+### On local machine
 
-Start the server:
+Simple method to start the service:
 
 ```
 $ cd 'spring-service'
 $ mvn spring-boot:run
 ```
+For start all the service you can execute `start_all.sh`.
 
 The server is a Spring Boot application so you can run it from your
 IDE instead if you prefer (the main class is
 `ConfigServerApplication`). 
+
+### On docker
+Running using Docker is even simpler, assuming that docker-compose 
+and docker are installed on your box, just run the following:
+
+Build the docker images for the microservices
+```
+mvn clean package docker:build
+```
+Start up Docker containers
+```
+docker-compose up
+```
 
 #### [author](https://github.com/rkovtiuk)
 
