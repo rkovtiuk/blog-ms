@@ -1,25 +1,27 @@
-package com.rkovtiuk.blog_ms.user.domain.mappers.impl;
+package com.rkovtiuk.blog_ms.user.domain.converter;
 
 import com.rkovtiuk.blog_ms.core.domain.entities.User;
 import com.rkovtiuk.blog_ms.core.domain.models.UserDTO;
 import com.rkovtiuk.blog_ms.core.domain.requests.user.SingUpRequest;
 import com.rkovtiuk.blog_ms.core.domain.responses.user.LoginResponse;
-import com.rkovtiuk.blog_ms.user.domain.mappers.UserMapper;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
 @Component
-public class UserMapperImpl implements UserMapper {
+public class UserConverter {
 
-    @Override
     public UserDTO mapToView(Object user){
         UserDTO view = null;
         if (user==null) {
             return null;
         } else if (user instanceof User) {
             User userModel = (User) user;
-            view = createUser(userModel.getForename(), userModel.getSurname(), userModel.getOrganisation(), userModel.getPoints());
+            view = createUser(
+                userModel.getForename(),
+                userModel.getSurname(),
+                userModel.getOrganisation(),
+                userModel.getPoints());
             view.setId(userModel.getId());
         }
 
@@ -35,7 +37,6 @@ public class UserMapperImpl implements UserMapper {
         return view;
     }
 
-    @Override
     public User mapToEntity(Object user){
         User entity = null;
         if (user == null)
@@ -51,7 +52,6 @@ public class UserMapperImpl implements UserMapper {
         return entity;
     }
 
-    @Override
     public Optional<LoginResponse> mapToLoginResponse(User user) {
         LoginResponse response = new LoginResponse();
         response.setId(user.getId());
@@ -60,6 +60,6 @@ public class UserMapperImpl implements UserMapper {
         response.setSurname(user.getSurname());
         response.setOrganisation(user.getOrganisation());
         response.setPoints(user.getPoints());
-        return Optional.ofNullable(response);
+        return Optional.of(response);
     }
 }

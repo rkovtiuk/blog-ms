@@ -1,8 +1,6 @@
-package com.rkovtiuk.blog_ms.user;
+package com.rkovtiuk.blog_ms.user.config;
 
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -11,20 +9,15 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
-@ComponentScan({"com.rkovtiuk.blog_ms.core", "com.rkovtiuk.blog_ms.user"})
 @EnableSwagger2
-@EnableAutoConfiguration
 public class SwaggerConfiguration {
-
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("com.rkovtiuk.blog_ms.user.controllers"))
-                .paths(PathSelectors.any())
-                .build();
+            .select()
+            .apis(RequestHandlerSelectors.basePackage("com.rkovtiuk.blog_ms.user.controllers"))
+            .paths(PathSelectors.any())
+            .build();
     }
-
-
 }
 

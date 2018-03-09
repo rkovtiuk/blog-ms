@@ -1,0 +1,43 @@
+server:
+  port: 9001
+  contextPath: /
+
+endpoints:
+  shutdown:
+    sensitive: false #No auth  protected
+    enabled: true #Enable shutdown endpoint
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/boot_microservices
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: none
+  messages:
+    basename: messages/messages
+  profiles:
+    active: production
+
+# Actuator / Management
+management:
+  contextPath: /manage
+# Spring Boot 1.5 makes actuator secure by default
+  security:
+    enabled: false
+
+# Logging
+logging:
+  level:
+    org:
+      springframework: INFO
+#      springframework.web: DEBUG
+# logging.level.org.springframework.context.annotation=TRACE
+
+# Swagger
+springfox:
+  documentation:
+    swagger:
+      v2:
+        path: /api-docs

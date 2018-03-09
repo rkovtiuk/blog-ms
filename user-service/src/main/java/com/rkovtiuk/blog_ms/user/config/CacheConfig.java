@@ -1,4 +1,4 @@
-package com.rkovtiuk.blog_ms.user.domain.config;
+package com.rkovtiuk.blog_ms.user.config;
 
 import org.springframework.boot.autoconfigure.cache.JCacheManagerCustomizer;
 import org.springframework.cache.annotation.EnableCaching;
@@ -11,12 +11,12 @@ import javax.cache.configuration.MutableConfiguration;
 /**
  * Cache could be disabled in unit test.
  */
-@org.springframework.context.annotation.Configuration
-@EnableCaching
-@Profile("production")
+//@org.springframework.context.annotation.Configuration
+//@EnableCaching
+//@Profile("production")
 class CacheConfig {
 
-    @Bean
+//    @Bean
     public JCacheManagerCustomizer cacheManagerCustomizer() {
         return cm -> {
             Configuration<Object, Object> cacheConfiguration = createCacheConfiguration();

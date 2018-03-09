@@ -1,10 +1,9 @@
 package com.rkovtiuk.blog_ms.user.services.impl;
 
-import com.rkovtiuk.blog_ms.core.domain.entities.User;
 import com.rkovtiuk.blog_ms.core.domain.models.UserDTO;
 import com.rkovtiuk.blog_ms.core.domain.requests.user.SingUpRequest;
 import com.rkovtiuk.blog_ms.core.domain.responses.user.LoginResponse;
-import com.rkovtiuk.blog_ms.user.domain.mappers.UserMapper;
+import com.rkovtiuk.blog_ms.user.domain.converter.UserConverter;
 import com.rkovtiuk.blog_ms.user.repository.UserRepository;
 import com.rkovtiuk.blog_ms.user.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,18 +17,17 @@ import java.util.stream.Collectors;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
-    private final UserMapper userMapper;
+    private final UserConverter userMapper;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository, UserMapper userMapper) {
+    public UserServiceImpl(UserRepository userRepository, UserConverter userMapper) {
         this.userRepository = userRepository;
         this.userMapper = userMapper;
     }
 
     @Override
-    public UserDTO getUserById(Integer id){
-        User user = userRepository.findById(id);
-        return userMapper.mapToView(user);
+    public Optional<UserDTO> getUserById(Integer id){
+        return userRepository.findById(id).map(userMapper::mapToView);
     }
 
     @Override
