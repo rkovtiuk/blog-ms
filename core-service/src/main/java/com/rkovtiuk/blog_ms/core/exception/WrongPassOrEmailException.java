@@ -1,5 +1,9 @@
 package com.rkovtiuk.blog_ms.core.exception;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+@ResponseStatus(code = HttpStatus.BAD_REQUEST, reason = "Wrong password or email")
 public class WrongPassOrEmailException extends Exception{
 
     public WrongPassOrEmailException() {

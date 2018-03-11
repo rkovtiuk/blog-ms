@@ -1,9 +1,13 @@
 package com.rkovtiuk.blog_ms.core.exception;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+@ResponseStatus(code = HttpStatus.BAD_REQUEST, reason = "Email is not valid")
 public class EmailNotValidException extends Exception{
 
     public EmailNotValidException() {
-        super("Email not valid exception");
+        super("Email is not valid");
     }
 
     public EmailNotValidException(String s) {

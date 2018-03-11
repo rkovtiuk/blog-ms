@@ -1,9 +1,13 @@
 package com.rkovtiuk.blog_ms.core.exception;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+@ResponseStatus(code = HttpStatus.UNAUTHORIZED, reason = "Non authorized user")
 public class AuthorizedException extends Exception{
 
     public AuthorizedException() {
-        super("Non Authorized User");
+        super("Non authorized user");
     }
 
     public AuthorizedException(String s) {
