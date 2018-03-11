@@ -4,10 +4,8 @@ import com.rkovtiuk.blog_ms.blog.service.BlogService;
 import com.rkovtiuk.blog_ms.core.domain.entities.Comment;
 import com.rkovtiuk.blog_ms.core.domain.models.BlogDTO;
 import com.rkovtiuk.blog_ms.core.domain.requests.blog.CreateCommentRequest;
-import com.rkovtiuk.blog_ms.core.domain.responses.BaseResponse;
 import com.rkovtiuk.blog_ms.core.exception.AuthorizedException;
 import com.rkovtiuk.blog_ms.core.exception.EmptyRequestException;
-import com.rkovtiuk.blog_ms.core.utils.ExceptUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -83,8 +81,4 @@ public class BlogController {
         return new ResponseEntity<>(comment, HttpStatus.CREATED);
     }
 
-    @ExceptionHandler
-    public ResponseEntity<BaseResponse> dummyExceptionHandler(Exception e) {
-        return ExceptUtils.responseData(e);
-    }
 }

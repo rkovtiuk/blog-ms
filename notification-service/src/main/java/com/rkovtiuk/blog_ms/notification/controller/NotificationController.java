@@ -2,12 +2,9 @@ package com.rkovtiuk.blog_ms.notification.controller;
 
 import com.rkovtiuk.blog_ms.core.domain.models.NotificationDTO;
 import com.rkovtiuk.blog_ms.core.domain.requests.notifications.NotificationRequest;
-import com.rkovtiuk.blog_ms.core.domain.responses.BaseResponse;
 import com.rkovtiuk.blog_ms.core.exception.EmptyRequestException;
-import com.rkovtiuk.blog_ms.core.utils.ExceptUtils;
 import com.rkovtiuk.blog_ms.notification.services.NotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,11 +25,6 @@ public class NotificationController {
     public  @ResponseBody List<NotificationDTO> getUser(@RequestBody NotificationRequest request) throws EmptyRequestException {
         if (isObjectEmpty(request)) throw new EmptyRequestException();
         return service.getUserNotification(request.getId());
-    }
-
-    @ExceptionHandler
-    public ResponseEntity<BaseResponse> dummyExceptionHandler(Exception e) {
-        return ExceptUtils.responseData(e);
     }
 
 }

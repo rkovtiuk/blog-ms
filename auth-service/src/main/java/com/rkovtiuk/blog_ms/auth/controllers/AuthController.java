@@ -3,12 +3,9 @@ package com.rkovtiuk.blog_ms.auth.controllers;
 import com.rkovtiuk.blog_ms.auth.service.AuthService;
 import com.rkovtiuk.blog_ms.core.domain.requests.auth.CreateTokenRequest;
 import com.rkovtiuk.blog_ms.core.domain.requests.auth.TokenRequest;
-import com.rkovtiuk.blog_ms.core.domain.responses.BaseResponse;
 import com.rkovtiuk.blog_ms.core.exception.EmptyRequestException;
 import com.rkovtiuk.blog_ms.core.exception.NotFoundException;
-import com.rkovtiuk.blog_ms.core.utils.ExceptUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -48,11 +45,6 @@ public class AuthController {
     public void removeToken(@RequestBody TokenRequest request) throws EmptyRequestException {
         if (isObjectEmpty(request)) throw new EmptyRequestException();
         authService.removeToken(request.getToken());
-    }
-
-    @ExceptionHandler
-    public ResponseEntity<BaseResponse> dummyExceptionHandler(Exception e) {
-        return ExceptUtils.responseData(e);
     }
 
 }
